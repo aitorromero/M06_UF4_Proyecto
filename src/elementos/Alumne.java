@@ -3,15 +3,19 @@ package elementos;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
 @Entity
 public class Alumne implements Serializable{
     private static final long serialVersionUID = 1L;
-    
+
     @Id
-    private String nif;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long nif;
+
     private String nom;
     private String cognom;
     private String correu;
@@ -20,7 +24,7 @@ public class Alumne implements Serializable{
     public Alumne() {
     }
         
-    public Alumne(String nif, String nom, String cognom, String correu, int telefon) {
+    public Alumne(Long nif, String nom, String cognom, String correu, int telefon) {
         this.nif = nif;
         this.nom = nom;
         this.cognom = cognom;
@@ -28,7 +32,7 @@ public class Alumne implements Serializable{
         this.telefon = telefon;
     }
 
-    public String getNif() {
+    public Long getNif() {
         return nif;
     }
 
@@ -48,7 +52,7 @@ public class Alumne implements Serializable{
         return telefon;
     }
 
-    public void setNif(String nif) {
+    public void setNif(Long nif) {
         this.nif = nif;
     }
 
