@@ -4,6 +4,6 @@ package Utilitats;
  *
  * @author ALUMNEDAM
  */
-public enum Curs {
+public enum CursNom {
     primer,segon;
 }
