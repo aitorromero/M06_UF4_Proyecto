@@ -19,9 +19,6 @@ public class Familia implements Serializable{
     private String nom;
     private List<Cicle> llistaCicles;
     
-/*• id
-• nom
-• llista de cicles*/
 
     public String getNom() {
         return nom;
