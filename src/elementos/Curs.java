@@ -42,9 +42,7 @@ public class Curs implements Serializable{
 
     public List<UnitatFormativa> getLlistatUF() {
         return llistatUF;
-    }
-    
-    
+    }    
     
     public Long getId() {
         return id;

@@ -95,8 +95,6 @@ public class Alumne implements Serializable{
             return false;
         }
         return true;
-    }
-    
-    
+    }    
     
 }
