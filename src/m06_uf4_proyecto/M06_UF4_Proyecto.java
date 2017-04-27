@@ -13,7 +13,7 @@ public class M06_UF4_Proyecto {
         
         Alumne a = new Alumne(20000000L, "Alejnardo", "Verga", "correoentucara@gmail.com",777666888);
         
-        ac.Insertar(a);
+        ac.insertar(a);
     
         
         

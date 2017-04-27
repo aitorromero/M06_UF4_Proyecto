@@ -1,14 +1,15 @@
 package controllers;
 
+import DAO.CursDAO;
 import elementos.Curs;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
+public class Curs_Controller implements CursDAO {
 
-public class Curs_Controller {
-
-       public void Insertar(Curs p) {
+    @Override
+    public void insertar(Curs p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -29,7 +30,8 @@ public class Curs_Controller {
         em.close();
     }
 
-    public void Modificar(Curs p) {
+    @Override
+    public void modificar(Curs p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -50,7 +52,8 @@ public class Curs_Controller {
         em.close();
     }
 
-    public void Eliminar(Curs p) {
+    @Override
+    public void eliminar(Curs p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -99,5 +102,5 @@ public class Curs_Controller {
     public void imprimirPersona(Curs c) {
         System.out.println(c);
     }
-    
+
 }

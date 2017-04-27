@@ -1,14 +1,15 @@
 package controllers;
 
+import DAO.AlumneDAO;
 import elementos.Alumne;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
+public class Alumne_Controller implements AlumneDAO {
 
-public class Alumne_Controller {
-
-       public void Insertar(Alumne p) {
+    @Override
+    public void insertar(Alumne p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -29,7 +30,8 @@ public class Alumne_Controller {
         em.close();
     }
 
-    public void Modificar(Alumne p) {
+    @Override
+    public void modificar(Alumne p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -50,7 +52,8 @@ public class Alumne_Controller {
         em.close();
     }
 
-    public void Eliminar(Alumne p) {
+    @Override
+    public void eliminar(Alumne p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -99,5 +102,20 @@ public class Alumne_Controller {
     public void imprimirPersona(Alumne c) {
         System.out.println(c);
     }
-    
+
+    @Override
+    public void cercaAlumnePerNom(String nom) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cercaAlumnePerCognom(String cognom) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cercarAlumnes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

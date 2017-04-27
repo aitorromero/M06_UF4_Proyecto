@@ -1,14 +1,15 @@
 package controllers;
 
+import DAO.CicleDAO;
 import elementos.Cicle;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
+public class Cicle_Controller implements CicleDAO {
 
-public class Cicle_Controller {
-
-       public void Insertar(Cicle p) {
+    @Override
+    public void insertar(Cicle p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -29,7 +30,8 @@ public class Cicle_Controller {
         em.close();
     }
 
-    public void Modificar(Cicle p) {
+    @Override
+    public void modificar(Cicle p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -50,7 +52,8 @@ public class Cicle_Controller {
         em.close();
     }
 
-    public void Eliminar(Cicle p) {
+    @Override
+    public void eliminar(Cicle p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -99,5 +102,5 @@ public class Cicle_Controller {
     public void imprimirPersona(Cicle c) {
         System.out.println(c);
     }
-    
+
 }

@@ -1,14 +1,15 @@
 package controllers;
 
+import DAO.ModulDAO;
 import elementos.Modul;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
+public class Modul_Controller implements ModulDAO {
 
-public class Modul_Controller {
-
-       public void Insertar(Modul p) {
+    @Override
+    public void insertar(Modul p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -29,7 +30,8 @@ public class Modul_Controller {
         em.close();
     }
 
-    public void Modificar(Modul p) {
+    @Override
+    public void modificar(Modul p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -50,7 +52,8 @@ public class Modul_Controller {
         em.close();
     }
 
-    public void Eliminar(Modul p) {
+    @Override
+    public void eliminar(Modul p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -99,5 +102,5 @@ public class Modul_Controller {
     public void imprimirPersona(Modul c) {
         System.out.println(c);
     }
-    
+
 }

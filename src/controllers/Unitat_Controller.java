@@ -1,14 +1,15 @@
 package controllers;
 
+import DAO.UnitatFormativaDAO;
 import elementos.UnitatFormativa;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
+public class Unitat_Controller implements UnitatFormativaDAO {
 
-public class Unitat_Controller {
-
-       public void Insertar(UnitatFormativa p) {
+    @Override
+    public void insertar(UnitatFormativa p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -29,7 +30,8 @@ public class Unitat_Controller {
         em.close();
     }
 
-    public void Modificar(UnitatFormativa p) {
+    @Override
+    public void modificar(UnitatFormativa p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -50,7 +52,8 @@ public class Unitat_Controller {
         em.close();
     }
 
-    public void Eliminar(UnitatFormativa p) {
+    @Override
+    public void eliminar(UnitatFormativa p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -99,6 +102,5 @@ public class Unitat_Controller {
     public void imprimirPersona(UnitatFormativa c) {
         System.out.println(c);
     }
-    
+
 }
-    
