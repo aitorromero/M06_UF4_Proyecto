@@ -1,5 +1,6 @@
 package elementos;
 
+import Utilitats.CursNom;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -19,9 +20,12 @@ public class Curs implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String nomCurs;
     @ManyToOne
-    @JoinColumn//ColumnaDeCicle
+    @JoinColumn
+    private CursNom cursNom;
+    
+    @ManyToOne
+    @JoinColumn
     private Cicle cicle;
     @OneToMany(mappedBy="curs")  
     private List<UnitatFormativa> llistatUF;
@@ -29,22 +33,22 @@ public class Curs implements Serializable{
     public Curs() {
     }
 
-    public Curs(Long id, String nomCurs, List<UnitatFormativa> llistatUF) {
+    public Curs(Long id, CursNom cursNom, List<UnitatFormativa> llistatUF) {
         this.id = id;
-        this.nomCurs = nomCurs;
+        this.cursNom = cursNom;
         this.llistatUF = llistatUF;
     }
 
-    public void setNomCurs(String nomCurs) {
-        this.nomCurs = nomCurs;
+    public void setNomCurs(CursNom cursNom) {
+        this.cursNom = cursNom;
     }
 
     public void setLlistatUF(List<UnitatFormativa> llistatUF) {
         this.llistatUF = llistatUF;
     }
 
-    public String getNomCurs() {
-        return nomCurs;
+    public CursNom getNomCurs() {
+        return cursNom;
     }
 
     public List<UnitatFormativa> getLlistatUF() {

@@ -1,5 +1,8 @@
 package elementos;
 
+import Utilitats.CursNom;
+import Utilitats.MatriculaDescompte;
+import Utilitats.MatriculaModalitats;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -17,28 +20,22 @@ public class Matricula implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String alumne;
+    private Alumne alumne;
     private String data;
+    @OneToMany(mappedBy="nomCurs")
+    private CursNom cursNom;
     
     @OneToMany(mappedBy="matricula")
     private List<UnitatFormativa> llistaUF;
     
-    private String modalitat;
-    private String descompte;
+    private MatriculaDescompte descompte;
     
-    /*
-    @ManyToOne
-    @JoinColumn(name="persona_nombre")//ColumnaDeFactura
-    private Persona persona;
+    private MatriculaModalitats modalitat;
     
-    @OneToMany(mappedBy="persona" )
-    private List<Factura> listaFacturas;
-    */
-
     public Matricula() {
     }
 
-    public Matricula(Long id, String alumne, String data, List<UnitatFormativa> llistaUF, String modalitat, String descompte) {
+    public Matricula(Long id, Alumne alumne, String data, List<UnitatFormativa> llistaUF, MatriculaModalitats modalitat, MatriculaDescompte descompte) {
         this.id = id;
         this.alumne = alumne;
         this.data = data;
@@ -55,7 +52,7 @@ public class Matricula implements Serializable{
         return id;
     }
 
-    public String getAlumne() {
+    public Alumne getAlumne() {
         return alumne;
     }
 
@@ -67,11 +64,11 @@ public class Matricula implements Serializable{
         return llistaUF;
     }
 
-    public String getModalitat() {
+    public MatriculaModalitats getModalitat() {
         return modalitat;
     }
 
-    public String getDescompte() {
+    public MatriculaDescompte getDescompte() {
         return descompte;
     }
 
@@ -79,7 +76,7 @@ public class Matricula implements Serializable{
         this.id = id;
     }
 
-    public void setAlumne(String alumne) {
+    public void setAlumne(Alumne alumne) {
         this.alumne = alumne;
     }
 
@@ -91,11 +88,11 @@ public class Matricula implements Serializable{
         this.llistaUF = llistaUF;
     }
 
-    public void setModalitat(String modalitat) {
+    public void setModalitat(MatriculaModalitats modalitat) {
         this.modalitat = modalitat;
     }
 
-    public void setDescompte(String descompte) {
+    public void setDescompte(MatriculaDescompte descompte) {
         this.descompte = descompte;
     }
 
