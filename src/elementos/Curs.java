@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Curs implements Serializable{
@@ -17,6 +20,10 @@ public class Curs implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nomCurs;
+    @ManyToOne
+    @JoinColumn//ColumnaDeCicle
+    private Cicle cicle;
+    @OneToMany(mappedBy="curs")  
     private List<UnitatFormativa> llistatUF;
 
     public Curs() {

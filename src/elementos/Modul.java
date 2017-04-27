@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Modul implements Serializable{
@@ -16,7 +19,11 @@ public class Modul implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String nom;
+    private String nom;  
+    @ManyToOne
+    @JoinColumn
+    private Cicle cicle;
+    @OneToMany(mappedBy="modul")    
     private List<UnitatFormativa> llistaUF;
 
     public Modul() {

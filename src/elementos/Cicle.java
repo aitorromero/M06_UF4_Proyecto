@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cicle implements Serializable{
@@ -18,9 +20,24 @@ public class Cicle implements Serializable{
     private Long id;
     private String nom;
     private String grau;
+    
+    @OneToMany(mappedBy="cicle")
     private List<Modul> listaModulos;
+    
+    @OneToMany(mappedBy="cicle")
     private List<Curs> listaCursos;
+    
+    @ManyToOne
+    private Familia familia;
 
+    /*
+    @ManyToOne
+    @JoinColumn(name="persona_nombre")//ColumnaDeFactura
+    private Persona persona;
+    
+    @OneToMany(mappedBy="persona" )
+    private List<Factura> listaFacturas;
+    */
     public Cicle() {
     }
 

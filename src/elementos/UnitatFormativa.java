@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class UnitatFormativa implements Serializable{
@@ -16,6 +18,17 @@ public class UnitatFormativa implements Serializable{
     private Long id;
     private String nom;
     private int hores;
+    @ManyToOne
+    @JoinColumn
+    private UnitatFormativa uf;
+    
+    @ManyToOne
+    @JoinColumn
+    private Modul modul;
+    
+    @ManyToOne
+    @JoinColumn
+    private Curs curs;
 
     public UnitatFormativa() {
     }

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Matricula implements Serializable{
@@ -18,9 +19,21 @@ public class Matricula implements Serializable{
     private Long id;
     private String alumne;
     private String data;
+    
+    @OneToMany(mappedBy="matricula")
     private List<UnitatFormativa> llistaUF;
+    
     private String modalitat;
     private String descompte;
+    
+    /*
+    @ManyToOne
+    @JoinColumn(name="persona_nombre")//ColumnaDeFactura
+    private Persona persona;
+    
+    @OneToMany(mappedBy="persona" )
+    private List<Factura> listaFacturas;
+    */
 
     public Matricula() {
     }
