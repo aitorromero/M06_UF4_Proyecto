@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -15,11 +16,12 @@ public class Alumne implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long nif;
-
     private String nom;
     private String cognom;
     private String correu;
     private int telefon;
+    @OneToOne(mappedBy = "alumne")
+    private Matricula matriculaAlumne;
 
     public Alumne() {
     }

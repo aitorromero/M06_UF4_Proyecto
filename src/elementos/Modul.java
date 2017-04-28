@@ -29,10 +29,9 @@ public class Modul implements Serializable{
     public Modul() {
     }
 
-    public Modul(Long id, String nom, List<UnitatFormativa> llistaUF) {
+    public Modul(Long id, String nom) {
         this.id = id;
         this.nom = nom;
-        this.llistaUF = llistaUF;
     }
 
     public static long getSerialVersionUID() {

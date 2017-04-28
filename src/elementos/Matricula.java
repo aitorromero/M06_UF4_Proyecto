@@ -10,7 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Matricula implements Serializable{
@@ -20,26 +22,23 @@ public class Matricula implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @OneToOne
+    @JoinColumn(name="idAlum")
     private Alumne alumne;
     private String data;
     @OneToMany(mappedBy="nomCurs")
-    private CursNom cursNom;
-    
+    private CursNom cursNom;    
     @OneToMany(mappedBy="matricula")
-    private List<UnitatFormativa> llistaUF;
-    
-    private MatriculaDescompte descompte;
-    
+    private List<UnitatFormativa> llistaUF;    
+    private MatriculaDescompte descompte;    
     private MatriculaModalitats modalitat;
     
     public Matricula() {
     }
 
-    public Matricula(Long id, Alumne alumne, String data, List<UnitatFormativa> llistaUF, MatriculaModalitats modalitat, MatriculaDescompte descompte) {
+    public Matricula(Long id, String data, MatriculaModalitats modalitat, MatriculaDescompte descompte) {
         this.id = id;
-        this.alumne = alumne;
         this.data = data;
-        this.llistaUF = llistaUF;
         this.modalitat = modalitat;
         this.descompte = descompte;
     }

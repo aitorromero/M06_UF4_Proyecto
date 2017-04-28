@@ -33,10 +33,9 @@ public class Curs implements Serializable{
     public Curs() {
     }
 
-    public Curs(Long id, CursNom cursNom, List<UnitatFormativa> llistatUF) {
+    public Curs(Long id, CursNom cursNom) {
         this.id = id;
         this.cursNom = cursNom;
-        this.llistatUF = llistatUF;
     }
 
     public void setNomCurs(CursNom cursNom) {

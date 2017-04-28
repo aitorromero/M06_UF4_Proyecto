@@ -22,10 +22,9 @@ public class Familia implements Serializable{
     @OneToMany(mappedBy="familia")
     private List<Cicle> llistaCicles;
 
-    public Familia(Long id, String nom, List<Cicle> llistaCicles) {
+    public Familia(Long id, String nom) {
         this.id = id;
         this.nom = nom;
-        this.llistaCicles = llistaCicles;
     }
 
     public Familia() {

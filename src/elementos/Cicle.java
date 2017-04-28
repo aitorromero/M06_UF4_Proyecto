@@ -30,22 +30,13 @@ public class Cicle implements Serializable{
     @ManyToOne
     private Familia familia;
 
-    /*
-    @ManyToOne
-    @JoinColumn(name="persona_nombre")//ColumnaDeFactura
-    private Persona persona;
-    
-    @OneToMany(mappedBy="persona" )
-    private List<Factura> listaFacturas;
-    */
     public Cicle() {
     }
 
-    public Cicle(Long id, String nom, String grau, List<Modul> listaModulos, List<Curs> listaCursos) {
+    public Cicle(Long id, String nom, String grau, List<Curs> listaCursos) {
         this.id = id;
         this.nom = nom;
         this.grau = grau;
-        this.listaModulos = listaModulos;
         this.listaCursos = listaCursos;
     }
 
