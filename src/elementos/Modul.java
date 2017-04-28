@@ -29,38 +29,44 @@ public class Modul implements Serializable{
     public Modul() {
     }
 
-    public Modul(Long id, String nom) {
+    public Modul(Long id, String nom, Cicle cicle) {
         this.id = id;
         this.nom = nom;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+        this.cicle=cicle;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getNom() {
-        return nom;
-    }
-
-    public List<UnitatFormativa> getLlistaUF() {
-        return llistaUF;
-    }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
     }
 
     public void setNom(String nom) {
         this.nom = nom;
     }
 
+    public Cicle getCicle() {
+        return cicle;
+    }
+
+    public void setCicle(Cicle cicle) {
+        this.cicle = cicle;
+    }
+
+    public List<UnitatFormativa> getLlistaUF() {
+        return llistaUF;
+    }
+
     public void setLlistaUF(List<UnitatFormativa> llistaUF) {
         this.llistaUF = llistaUF;
     }
+
 
     @Override
     public int hashCode() {

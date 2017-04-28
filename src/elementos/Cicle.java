@@ -19,14 +19,11 @@ public class Cicle implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nom;
-    private String grau;
-    
+    private String grau;    
     @OneToMany(mappedBy="cicle")
-    private List<Modul> listaModulos;
-    
+    private List<Modul> listaModulos;    
     @OneToMany(mappedBy="cicle")
-    private List<Curs> listaCursos;
-    
+    private List<Curs> listaCursos;    
     @ManyToOne
     private Familia familia;
 

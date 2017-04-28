@@ -33,27 +33,12 @@ public class Curs implements Serializable{
     public Curs() {
     }
 
-    public Curs(Long id, CursNom cursNom) {
+    public Curs(Long id, CursNom cursNom, Cicle cicle) {
         this.id = id;
         this.cursNom = cursNom;
+        this.cicle= cicle;
     }
 
-    public void setNomCurs(CursNom cursNom) {
-        this.cursNom = cursNom;
-    }
-
-    public void setLlistatUF(List<UnitatFormativa> llistatUF) {
-        this.llistatUF = llistatUF;
-    }
-
-    public CursNom getNomCurs() {
-        return cursNom;
-    }
-
-    public List<UnitatFormativa> getLlistatUF() {
-        return llistatUF;
-    }    
-    
     public Long getId() {
         return id;
     }
@@ -61,6 +46,30 @@ public class Curs implements Serializable{
     public void setId(Long id) {
         this.id = id;
     }
+
+    public CursNom getCursNom() {
+        return cursNom;
+    }
+
+    public void setCursNom(CursNom cursNom) {
+        this.cursNom = cursNom;
+    }
+
+    public Cicle getCicle() {
+        return cicle;
+    }
+
+    public void setCicle(Cicle cicle) {
+        this.cicle = cicle;
+    }
+
+    public List<UnitatFormativa> getLlistatUF() {
+        return llistatUF;
+    }
+
+    public void setLlistatUF(List<UnitatFormativa> llistatUF) {
+        this.llistatUF = llistatUF;
+    } 
   
     @Override
     public int hashCode() {

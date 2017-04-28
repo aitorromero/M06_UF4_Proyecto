@@ -20,12 +20,10 @@ public class UnitatFormativa implements Serializable{
     private int hores;
     @ManyToOne
     @JoinColumn
-    private UnitatFormativa uf;
-    
+    private UnitatFormativa uf;    
     @ManyToOne
     @JoinColumn
-    private Modul modul;
-    
+    private Modul modul;    
     @ManyToOne
     @JoinColumn
     private Curs curs;
@@ -33,40 +31,63 @@ public class UnitatFormativa implements Serializable{
     public UnitatFormativa() {
     }
 
-    public UnitatFormativa(Long id, String nom, int hores) {
+    public UnitatFormativa(Long id, String nom, int hores, UnitatFormativa uf, Modul modul, Curs curs) {
         this.id = id;
         this.nom = nom;
         this.hores = hores;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+        this.uf = uf;
+        this.modul = modul;
+        this.curs = curs;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getNom() {
-        return nom;
-    }
-
-    public int getHores() {
-        return hores;
-    }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
     }
 
     public void setNom(String nom) {
         this.nom = nom;
     }
 
+    public int getHores() {
+        return hores;
+    }
+
     public void setHores(int hores) {
         this.hores = hores;
     }
 
+    public UnitatFormativa getUf() {
+        return uf;
+    }
+
+    public void setUf(UnitatFormativa uf) {
+        this.uf = uf;
+    }
+
+    public Modul getModul() {
+        return modul;
+    }
+
+    public void setModul(Modul modul) {
+        this.modul = modul;
+    }
+
+    public Curs getCurs() {
+        return curs;
+    }
+
+    public void setCurs(Curs curs) {
+        this.curs = curs;
+    }
+        
     @Override
     public int hashCode() {
         int hash = 7;
