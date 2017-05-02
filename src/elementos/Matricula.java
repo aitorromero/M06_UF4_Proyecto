@@ -25,9 +25,10 @@ public class Matricula implements Serializable{
     private Long id;
     
     @OneToOne
-    @JoinColumn(name="idAlum")
+    @JoinColumn
     private Alumne alumne;
-    private String data;
+    
+    private String fecha;
     
     
     @ManyToMany(mappedBy="matricules")
@@ -38,12 +39,16 @@ public class Matricula implements Serializable{
     public Matricula() {
     }
 
-    public Matricula(Long id, String data, MatriculaModalitats modalitat, MatriculaDescompte descompte) {
-        this.id = id;
-        this.data = data;
-        this.modalitat = modalitat;
+    
+    public Matricula(Alumne alumne, String data, List<UnitatFormativa> llistaUF, MatriculaDescompte descompte, MatriculaModalitats modalitat) {
+        this.alumne = alumne;
+        this.fecha = data;
+        this.llistaUF = llistaUF;
         this.descompte = descompte;
+        this.modalitat = modalitat;
     }
+    
+    
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -57,8 +62,8 @@ public class Matricula implements Serializable{
         return alumne;
     }
 
-    public String getData() {
-        return data;
+    public String getFecha() {
+        return fecha;
     }
 
     public List<UnitatFormativa> getLlistaUF() {
@@ -81,8 +86,8 @@ public class Matricula implements Serializable{
         this.alumne = alumne;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public void setLlistaUF(List<UnitatFormativa> llistaUF) {

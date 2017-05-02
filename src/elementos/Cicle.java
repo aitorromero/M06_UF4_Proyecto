@@ -30,8 +30,7 @@ public class Cicle implements Serializable{
     public Cicle() {
     }
 
-    public Cicle(Long id, String nom, String grau, List<Curs> listaCursos) {
-        this.id = id;
+    public Cicle( String nom, String grau, List<Curs> listaCursos) {
         this.nom = nom;
         this.grau = grau;
         this.listaCursos = listaCursos;

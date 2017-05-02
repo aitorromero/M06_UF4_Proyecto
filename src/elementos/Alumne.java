@@ -20,20 +20,30 @@ public class Alumne implements Serializable{
     private String cognom;
     private String correu;
     private int telefon;
+
     @OneToOne(mappedBy = "alumne")
     private Matricula matriculaAlumne;
 
     public Alumne() {
     }
-        
-    public Alumne(Long nif, String nom, String cognom, String correu, int telefon) {
-        this.nif = nif;
+
+    public Alumne(String nom, String cognom, String correu, int telefon, Matricula matriculaAlumne) {
         this.nom = nom;
         this.cognom = cognom;
         this.correu = correu;
         this.telefon = telefon;
+        this.matriculaAlumne = matriculaAlumne;
     }
 
+    public Matricula getMatriculaAlumne() {
+        return matriculaAlumne;
+    }
+
+    public void setMatriculaAlumne(Matricula matriculaAlumne) {
+        this.matriculaAlumne = matriculaAlumne;
+    }
+    
+    
     public Long getNif() {
         return nif;
     }

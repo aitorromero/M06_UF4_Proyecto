@@ -36,8 +36,8 @@ public class UnitatFormativa implements Serializable{
     public UnitatFormativa() {
     }
 
-    public UnitatFormativa(Long id, String nom, int hores, List<Matricula> matricules, Modul modul, Curs curs) {
-        this.id = id;
+    public UnitatFormativa( String nom, int hores, List<Matricula> matricules, Modul modul, Curs curs) {
+        
         this.nom = nom;
         this.hores = hores;
         this.matricules = matricules;

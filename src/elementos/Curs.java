@@ -33,8 +33,7 @@ public class Curs implements Serializable{
     public Curs() {
     }
 
-    public Curs(Long id, CursNom cursNom, Cicle cicle) {
-        this.id = id;
+    public Curs( CursNom cursNom, Cicle cicle) {
         this.cursNom = cursNom;
         this.cicle= cicle;
     }
