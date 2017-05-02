@@ -1,12 +1,14 @@
 package elementos;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -18,12 +20,15 @@ public class UnitatFormativa implements Serializable{
     private Long id;
     private String nom;
     private int hores;
-    @ManyToOne
-    @JoinColumn
-    private UnitatFormativa uf;    
+    
+    
+    @ManyToMany
+    private List<Matricula> matricules;    
+    
     @ManyToOne
     @JoinColumn
     private Modul modul;    
+    
     @ManyToOne
     @JoinColumn
     private Curs curs;
@@ -31,11 +36,11 @@ public class UnitatFormativa implements Serializable{
     public UnitatFormativa() {
     }
 
-    public UnitatFormativa(Long id, String nom, int hores, UnitatFormativa uf, Modul modul, Curs curs) {
+    public UnitatFormativa(Long id, String nom, int hores, List<Matricula> matricules, Modul modul, Curs curs) {
         this.id = id;
         this.nom = nom;
         this.hores = hores;
-        this.uf = uf;
+        this.matricules = matricules;
         this.modul = modul;
         this.curs = curs;
     }
@@ -64,13 +69,14 @@ public class UnitatFormativa implements Serializable{
         this.hores = hores;
     }
 
-    public UnitatFormativa getUf() {
-        return uf;
+    public List<Matricula> getUf() {
+        return matricules;
     }
 
-    public void setUf(UnitatFormativa uf) {
-        this.uf = uf;
+    public void setMatricules(List<Matricula> matricules) {
+        this.matricules = matricules;
     }
+
 
     public Modul getModul() {
         return modul;

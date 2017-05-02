@@ -20,8 +20,8 @@ public class Curs implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne
-    @JoinColumn
+    
+    
     private CursNom cursNom;
     
     @ManyToOne

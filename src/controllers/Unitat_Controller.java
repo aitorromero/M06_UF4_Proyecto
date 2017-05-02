@@ -90,7 +90,7 @@ public class Unitat_Controller implements UnitatFormativaDAO {
     public UnitatFormativa BuscarPerNom(String nom) {
         EntityManager em = new EM_Controller().getEntityManager();
 
-        System.out.println("Busqueda per nom");
+         System.out.println("Busqueda per nom");
         Query query = em.createNamedQuery("cercaUnitatNom", UnitatFormativa.class);
         query.setParameter("nom", nom);
         UnitatFormativa c = (UnitatFormativa) query.getSingleResult();

@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -22,13 +23,14 @@ public class Matricula implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
     @OneToOne
     @JoinColumn(name="idAlum")
     private Alumne alumne;
     private String data;
-    @OneToMany(mappedBy="nomCurs")
-    private CursNom cursNom;    
-    @OneToMany(mappedBy="matricula")
+    
+    
+    @ManyToMany(mappedBy="matricules")
     private List<UnitatFormativa> llistaUF;    
     private MatriculaDescompte descompte;    
     private MatriculaModalitats modalitat;
