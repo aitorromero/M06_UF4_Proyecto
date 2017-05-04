@@ -10,7 +10,6 @@ import controllers.Unitat_Controller;
 import elementos.Alumne;
 import elementos.Curs;
 import elementos.Matricula;
-import elementos.UnitatFormativa;
 
 public class M06_UF4_Proyecto {
 
@@ -26,15 +25,17 @@ public class M06_UF4_Proyecto {
         
         Alumne a = new Alumne("Alejnardo", "Verga","correo@corr.cor",0,null);
         
-        Matricula matri = new Matricula(null, "01/09/2016", null, MatriculaDescompte.cursComplet, MatriculaModalitats.total);
+        Matricula matri = new Matricula(ac.Buscar(401L), "01/09/2016", null, MatriculaDescompte.cursComplet, MatriculaModalitats.total);
         
         Curs c = new Curs(CursNom.primer, null);
         
         
         Curs c1 = new Curs(CursNom.segon, null);
         
+      
         
-        matri.setAlumne(a);
+        
+        //matri.setAlumne(a);
         //a.setMatriculaAlumne(matri);
         //UnitatFormativa uf1 = new UnitatFormativa("Historia de un historiador", 30, null, null, null);
         
@@ -43,14 +44,15 @@ public class M06_UF4_Proyecto {
         
         //ac.insertar(a);
     
-        //mc.insertar(matri);
+        mc.insertar(matri);
         
         
         //mc.modificar(matri);
         
-        cc.insertar(c1);
         
+        //cc.insertar(c1);
         
+     
         
         
         

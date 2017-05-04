@@ -4,6 +4,7 @@ import Utilitats.CursNom;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,7 +28,7 @@ public class Curs implements Serializable{
     @ManyToOne
     @JoinColumn
     private Cicle cicle;
-    @OneToMany(mappedBy="curs")  
+    @OneToMany(mappedBy="curs", cascade = CascadeType.ALL)  
     private List<UnitatFormativa> llistatUF;
 
     public Curs() {

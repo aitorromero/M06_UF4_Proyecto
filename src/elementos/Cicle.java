@@ -3,6 +3,7 @@ package elementos;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,9 +21,9 @@ public class Cicle implements Serializable{
     private Long id;
     private String nom;
     private String grau;    
-    @OneToMany(mappedBy="cicle")
+    @OneToMany(mappedBy="cicle", cascade = CascadeType.ALL)
     private List<Modul> listaModulos;    
-    @OneToMany(mappedBy="cicle")
+    @OneToMany(mappedBy="cicle", cascade = CascadeType.ALL)
     private List<Curs> listaCursos;    
     @ManyToOne
     private Familia familia;

@@ -6,6 +6,7 @@ import Utilitats.MatriculaModalitats;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,14 +26,15 @@ public class Matricula implements Serializable{
     private Long id;
     
     @OneToOne
-    @JoinColumn
+    @JoinColumn(name="idAlumne")
     private Alumne alumne;
     
     private String fecha;
     
     
-    @ManyToMany(mappedBy="matricules")
+    @ManyToMany(mappedBy="matricules", cascade = CascadeType.ALL)
     private List<UnitatFormativa> llistaUF;    
+
     private MatriculaDescompte descompte;    
     private MatriculaModalitats modalitat;
     

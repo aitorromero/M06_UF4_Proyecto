@@ -3,6 +3,7 @@ package elementos;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,14 +23,14 @@ public class UnitatFormativa implements Serializable{
     private int hores;
     
     
-    @ManyToMany
+    @ManyToMany (cascade = CascadeType.ALL)
     private List<Matricula> matricules;    
     
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn
     private Modul modul;    
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Curs curs;
 

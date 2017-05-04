@@ -15,6 +15,8 @@ public class Alumne implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    
+    
     private Long nif;
     private String nom;
     private String cognom;

@@ -3,6 +3,7 @@ package elementos;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,7 @@ public class Familia implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nom;
-    @OneToMany(mappedBy="familia")
+    @OneToMany(mappedBy="familia", cascade = CascadeType.ALL)
     private List<Cicle> llistaCicles;
 
     public Familia(Long id, String nom) {

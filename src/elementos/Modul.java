@@ -3,6 +3,7 @@ package elementos;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,10 +21,11 @@ public class Modul implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nom;  
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn
     private Cicle cicle;
-    @OneToMany(mappedBy="modul")    
+    
+    @OneToMany(mappedBy="modul",cascade = CascadeType.ALL)    
     private List<UnitatFormativa> llistaUF;
 
     public Modul() {
