@@ -11,6 +11,7 @@ import controllers.Unitat_Controller;
 import elementos.Alumne;
 import elementos.Cicle;
 import elementos.Curs;
+import elementos.Familia;
 import elementos.Matricula;
 import elementos.UnitatFormativa;
 import java.util.ArrayList;
@@ -27,19 +28,27 @@ public class M06_UF4_Proyecto {
         Cicle_Controller clc = new Cicle_Controller();
         
         
+       
+        //Alumne a1 = new Alumne(78946987L, "Capità", "Calçotets", "csdadorreo",12875);
         
-        //Curs c1 = new Curs(CursNom.primer, null);
-        
-        
-        //cc.insertar(c1);
-        Alumne a1 = new Alumne(78946987L, "Capità", "Calçotets", "csdadorreo",12875);
-        
-        ac.insertar(a1);
-               
-        
-        //Matricula matri = new Matricula(ac.Buscar(761L), "11/08/2014", null, MatriculaDescompte.ufsSotes, MatriculaModalitats.total);
+        //ac.insertar(a1);
+      
+        //Matricula matri = new Matricula(ac.Buscar(921L), "11/08/2014", 30.90, MatriculaDescompte.ufsSotes, MatriculaModalitats.total);
         
         //mc.insertar(matri);
+        
+        
+        
+       
+        //Cicle c1 = new Cicle("El ciclito no+", "III grado", familia);
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         ///a.setMatriculaAlumne(mc.Buscar(601L));

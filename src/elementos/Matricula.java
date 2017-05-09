@@ -31,7 +31,7 @@ public class Matricula implements Serializable{
     
     private String fecha;
     
-    private Long importe;
+    private double importe;
     
     @ManyToMany(mappedBy="matricules", cascade = CascadeType.ALL)
     private List<UnitatFormativa> llistaUF;    
@@ -43,7 +43,7 @@ public class Matricula implements Serializable{
     }
 
     
-    public Matricula(Alumne alumne, String data,Long importe , MatriculaDescompte descompte, MatriculaModalitats modalitat) {
+    public Matricula(Alumne alumne, String data,double importe , MatriculaDescompte descompte, MatriculaModalitats modalitat) {
         this.alumne = alumne;
         this.fecha = data;
         this.importe = importe;
@@ -65,11 +65,11 @@ public class Matricula implements Serializable{
         return alumne;
     }
 
-    public Long getImporte() {
+    public double getImporte() {
         return importe;
     }
 
-    public void setImporte(Long importe) {
+    public void setImporte(double importe) {
         this.importe = importe;
     }
 
