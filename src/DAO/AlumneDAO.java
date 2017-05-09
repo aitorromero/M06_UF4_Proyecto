@@ -1,11 +1,14 @@
 package DAO;
 
 import elementos.Alumne;
+import java.util.List;
 
 public interface AlumneDAO extends GenericDAO<Alumne> {
-    void cercaAlumnePerNom(String nom);
+    Alumne cercarAlumnesPerId();
     
-    void cercaAlumnePerCognom(String cognom);
+    List<Alumne> cercaAlumnePerNom(String nom);
     
-    void cercarAlumnes();
+    List<Alumne> cercaAlumnePerCognom(String cognom);
+    
+    List<Alumne> cercarAlumnes();
 }

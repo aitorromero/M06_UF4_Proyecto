@@ -1,17 +1,16 @@
 package controllers;
 
-import DAO.AlumneDAO;
-import elementos.Alumne;
-import java.util.List;
+import DAO.FamiliaDAO;
+import elementos.Familia;
+import elementos.Modul;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
-public class Alumne_Controller implements AlumneDAO {
-    EntityManager em;
+public class Familia_Controller implements FamiliaDAO {
 
     @Override
-    public void insertar(Alumne p) {
+    public void insertar(Familia p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -33,7 +32,7 @@ public class Alumne_Controller implements AlumneDAO {
     }
 
     @Override
-    public void modificar(Alumne p) {
+    public void modificar(Familia p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -55,7 +54,7 @@ public class Alumne_Controller implements AlumneDAO {
     }
 
     @Override
-    public void eliminar(Alumne p) {
+    public void eliminar(Familia p) {
         EM_Controller oem = new EM_Controller();
         EntityManager em = oem.getEntityManager();
 
@@ -76,12 +75,12 @@ public class Alumne_Controller implements AlumneDAO {
         em.close();
     }
 
-    public Alumne Buscar(Long id) {
+    public Modul Buscar(Long id) {
         EntityManager em = new EM_Controller().getEntityManager();
 
         System.out.println("busqueda");
 
-        Alumne c = (Alumne) em.find(Alumne.class, id);
+        Modul c = (Modul) em.find(Modul.class, id);
 
         System.out.println("close");
         em.close();
@@ -89,40 +88,16 @@ public class Alumne_Controller implements AlumneDAO {
         return c;
     }
 
-    public Alumne BuscarPerNom(String nom) {
+    public Modul BuscarPerNom(String nom) {
         EntityManager em = new EM_Controller().getEntityManager();
 
         System.out.println("Busqueda per nom");
-        Query query = em.createNamedQuery("cercaClientNom", Alumne.class);
+        Query query = em.createNamedQuery("cercaModulNom", Modul.class);
         query.setParameter("nom", nom);
-        Alumne c = (Alumne) query.getSingleResult();
+        Modul c = (Modul) query.getSingleResult();
         System.out.println("close");
         em.close();
         return c;
-    }
-
-    public void imprimirPersona(Alumne a) {
-        System.out.println(a);
-    }
-
-    @Override
-    public Alumne cercarAlumnesPerId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Alumne> cercaAlumnePerNom(String nom) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Alumne> cercaAlumnePerCognom(String cognom) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Alumne> cercarAlumnes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

@@ -9,13 +9,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
+@NamedQueries({
+@NamedQuery(name= Cicle.CICLE_ID, query="SELECT c FROM Cicle c WHERE c.id=:id")})
 public class Cicle implements Serializable{
 
     private static final long serialVersionUID = 1L;
-
+    
+    public static final String CICLE_ID = "cicle_id";
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

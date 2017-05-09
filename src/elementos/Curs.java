@@ -11,12 +11,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
+@NamedQueries({
+@NamedQuery(name= Curs.CURS_ID, query="SELECT c FROM Curs c WHERE c.id=:id")})
 public class Curs implements Serializable{
 
     private static final long serialVersionUID = 1L;
+    
+    public static final String CURS_ID = "curs_id";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

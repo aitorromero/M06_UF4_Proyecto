@@ -11,10 +11,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQueries({
+@NamedQuery(name= UnitatFormativa.UNITATFORMATIVA_ID, query="SELECT u FROM UnitatFormativa u WHERE u.id=:id")})
 public class UnitatFormativa implements Serializable{
     private static final long serialVersionUID = 1L;
+    
+    public static final String UNITATFORMATIVA_ID = "unitatformativa_id";   
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

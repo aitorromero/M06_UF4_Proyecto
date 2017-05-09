@@ -7,12 +7,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 
 
 @Entity
+@NamedQueries({
+@NamedQuery(name= Alumne.ID_ALUMNE, query="SELECT a FROM Alumne a WHERE a.id=:id"),
+@NamedQuery(name= Alumne.NOM_ALUMNE, query="SELECT a FROM Alumne a WHERE a.nom=:nom"),
+@NamedQuery(name= Alumne.COGNOM_ALUMNE, query="SELECT a FROM Alumne a WHERE a.cognom=:cognom")})
+
 public class Alumne implements Serializable{
     private static final long serialVersionUID = 1L;
+    
+    public static final String ID_ALUMNE = "id_alumne";
+    public static final String NOM_ALUMNE = "nom_alumne";
+    public static final String COGNOM_ALUMNE = "cognom_alumne";    
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

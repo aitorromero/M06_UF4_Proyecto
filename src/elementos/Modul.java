@@ -10,12 +10,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
+@NamedQueries({
+@NamedQuery(name= Modul.MODUL_ID, query="SELECT m FROM Modul m WHERE m.id=:id")})
 public class Modul implements Serializable{
     
     private static final long serialVersionUID = 1L;
+    
+    public static final String MODUL_ID = "modul_id";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
