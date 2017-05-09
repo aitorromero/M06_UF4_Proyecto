@@ -2,6 +2,7 @@ package elementos;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,7 @@ public class Alumne implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    
+    private Long idAlumne;
     
     private Long nif;
     private String nom;
@@ -23,18 +24,18 @@ public class Alumne implements Serializable{
     private String correu;
     private int telefon;
 
-    @OneToOne(mappedBy = "alumne")
+    @OneToOne(mappedBy = "alumne", cascade = CascadeType.ALL )
     private Matricula matriculaAlumne;
 
     public Alumne() {
     }
 
-    public Alumne(String nom, String cognom, String correu, int telefon, Matricula matriculaAlumne) {
+    public Alumne(Long nif, String nom, String cognom, String correu, int telefon) {
+        this.nif = nif;
         this.nom = nom;
         this.cognom = cognom;
         this.correu = correu;
         this.telefon = telefon;
-        this.matriculaAlumne = matriculaAlumne;
     }
 
     public Matricula getMatriculaAlumne() {

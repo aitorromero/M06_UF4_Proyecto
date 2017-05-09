@@ -1,15 +1,12 @@
 package m06_uf4_proyecto;
 
 import Utilitats.CursNom;
-import Utilitats.MatriculaDescompte;
-import Utilitats.MatriculaModalitats;
 import controllers.Alumne_Controller;
 import controllers.Curs_Controller;
 import controllers.Matricula_Controller;
 import controllers.Unitat_Controller;
 import elementos.Alumne;
 import elementos.Curs;
-import elementos.Matricula;
 
 public class M06_UF4_Proyecto {
 
@@ -23,16 +20,16 @@ public class M06_UF4_Proyecto {
         
         
         
-        Alumne a = new Alumne("Alejnardo", "Verga","correo@corr.cor",0,null);
+        Alumne a = new Alumne(789465112L, "Captain", "SadWing", "correo",47875);
         
-        Matricula matri = new Matricula(ac.Buscar(401L), "01/09/2016", null, MatriculaDescompte.cursComplet, MatriculaModalitats.total);
+        //Matricula matri = new Matricula(ac.Buscar(641L), "01/09/2016", null, MatriculaDescompte.cursComplet, MatriculaModalitats.total);
         
         Curs c = new Curs(CursNom.primer, null);
         
         
         Curs c1 = new Curs(CursNom.segon, null);
         
-      
+        ///a.setMatriculaAlumne(mc.Buscar(601L));
         
         
         //matri.setAlumne(a);
@@ -42,11 +39,11 @@ public class M06_UF4_Proyecto {
         //UnitatFormativa uf2 = new UnitatFormativa("Presente de un presentador", 33, null, null, null);
         //UnitatFormativa uf3 = new UnitatFormativa("Futuro de un historiador version Extendida", 20, null, null, null);
         
-        //ac.insertar(a);
+            ac.insertar(a);
     
-        mc.insertar(matri);
+        //mc.insertar(matri);
         
-        
+        //ac.modificar(a);
         //mc.modificar(matri);
         
         
