@@ -6,4 +6,6 @@ public interface GenericDAO<T>{
     void modificar (T t);
     
     void eliminar (T t);
+    
+   
 }

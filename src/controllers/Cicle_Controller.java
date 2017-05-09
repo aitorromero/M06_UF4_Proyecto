@@ -81,8 +81,6 @@ public class Cicle_Controller implements CicleDAO {
 
         Cicle c = (Cicle) em.find(Cicle.class, id);
 
-        System.out.println("close");
-        em.close();
 
         return c;
     }
@@ -99,8 +97,13 @@ public class Cicle_Controller implements CicleDAO {
         return c;
     }
 
-    public void imprimirPersona(Cicle c) {
-        System.out.println(c);
+    public void tancarEM(){
+        EntityManager em = new EM_Controller().getEntityManager();
+
+        System.out.println("close");
+        
+        em.close();
     }
+
 
 }

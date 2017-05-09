@@ -30,8 +30,8 @@ public class Familia implements Serializable{
     @OneToMany(mappedBy="familia", cascade = CascadeType.ALL)
     private List<Cicle> llistaCicles;
 
-    public Familia(Long id, String nom) {
-        this.id = id;
+    public Familia( String nom) {
+       
         this.nom = nom;
     }
 
