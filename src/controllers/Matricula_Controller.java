@@ -100,7 +100,7 @@ public class Matricula_Controller implements MatriculaDAO {
         em.close();
         return c;
     }
-
+/*
     @Override
     public Matricula cercaMatriculaPerUf(Alumne a) {
         EntityManager em = new EM_Controller().getEntityManager();
@@ -142,6 +142,41 @@ public class Matricula_Controller implements MatriculaDAO {
         
     }
 
+*/
 
+    @Override
+    public Matricula cercaMatriculaPerUf(Alumne a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Matricula cercaMatriculaPerCurs(Alumne a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Matricula cercaMatriculaPerCicle(Alumne a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Matricula cercaMatriculaPerFamilia(Alumne a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Matricula cercaMatriculaPerNif(Long nif) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Matricula> cercarTot() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Matricula cercarPerId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }
