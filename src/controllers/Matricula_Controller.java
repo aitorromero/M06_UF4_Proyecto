@@ -102,38 +102,44 @@ public class Matricula_Controller implements MatriculaDAO {
     }
 
     @Override
-    public void cercaMatriculaPerUf(Alumne a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Matricula cercaMatriculaPerUf(Alumne a) {
+        EntityManager em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(Familia.FAMILIA_ID, Familia.class);
+        query.setParameter("id", id);
+        Matricula c = (Matricula) query.getSingleResult();
+        return c;
     }
 
     @Override
-    public void cercaMatriculaPerCurs(Alumne a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Matricula cercaMatriculaPerCurs(Alumne a) {
+        
     }
 
     @Override
-    public void cercaMatriculaPerCicle(Alumne a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Matricula cercaMatriculaPerCicle(Alumne a) {
+        
     }
 
     @Override
-    public void cercaMatriculaPerFamilia(Alumne a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Matricula cercaMatriculaPerFamilia(Alumne a) {
+        
     }
 
     @Override
-    public void cercaMatriculaPerNif(Long nif) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Matricula cercaMatriculaPerNif(Long nif) {
+        
     }
 
     @Override
     public List<Matricula> cercarTot() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public Matricula cercarPerId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
 

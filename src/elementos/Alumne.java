@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 @Entity
 @NamedQueries({
 @NamedQuery(name= Alumne.ID_ALUMNE, query="SELECT a FROM Alumne a WHERE a.id=:id"),
+@NamedQuery(name= Alumne.NIF_ALUMNE, query="SELECT a FROM Alumne a WHERE a.nif=:nif"),
 @NamedQuery(name= Alumne.NOM_ALUMNE, query="SELECT a FROM Alumne a WHERE a.nom=:nom"),
 @NamedQuery(name= Alumne.COGNOM_ALUMNE, query="SELECT a FROM Alumne a WHERE a.cognom=:cognom")})
 
@@ -22,6 +23,7 @@ public class Alumne implements Serializable{
     private static final long serialVersionUID = 1L;
     
     public static final String ID_ALUMNE = "id_alumne";
+    public static final String NIF_ALUMNE = "nif_alumne";
     public static final String NOM_ALUMNE = "nom_alumne";
     public static final String COGNOM_ALUMNE = "cognom_alumne";    
 

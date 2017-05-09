@@ -147,4 +147,16 @@ public class Alumne_Controller implements AlumneDAO {
         return lista;
     }
 
+    @Override
+    public Alumne cercarPerNif(Long nif) {
+        em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(Alumne.NIF_ALUMNE, Alumne.class);
+        query.setParameter("nif", nif);
+        Alumne a = (Alumne) query.getSingleResult();
+
+        return a;
+    }
+
 }
