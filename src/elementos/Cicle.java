@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -21,20 +22,24 @@ public class Cicle implements Serializable{
     private Long id;
     private String nom;
     private String grau;    
+    
     @OneToMany(mappedBy="cicle", cascade = CascadeType.ALL)
     private List<Modul> listaModulos;    
+    
     @OneToMany(mappedBy="cicle", cascade = CascadeType.ALL)
     private List<Curs> listaCursos;    
-    @ManyToOne
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idFamilia")
     private Familia familia;
 
     public Cicle() {
     }
 
-    public Cicle( String nom, String grau, List<Curs> listaCursos) {
+    public Cicle( String nom, String grau, Familia familia) {
         this.nom = nom;
         this.grau = grau;
-        this.listaCursos = listaCursos;
+        this.familia = familia;
     }
 
     public String getNom() {
@@ -76,6 +81,16 @@ public class Cicle implements Serializable{
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Familia getFamilia() {
+        return familia;
+    }
+
+    public void setFamilia(Familia familia) {
+        this.familia = familia;
+    }
+    
+    
 
     @Override
     public int hashCode() {
