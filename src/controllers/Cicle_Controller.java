@@ -1,12 +1,16 @@
 package controllers;
 
 import DAO.CicleDAO;
+import elementos.Alumne;
 import elementos.Cicle;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 public class Cicle_Controller implements CicleDAO {
+
+    EntityManager em;
 
     @Override
     public void insertar(Cicle p) {
@@ -99,8 +103,27 @@ public class Cicle_Controller implements CicleDAO {
         return c;
     }
 
-    public void imprimirPersona(Cicle c) {
-        System.out.println(c);
+
+    @Override
+    public Cicle cercarPerId(int id) {
+        em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(Cicle.CICLE_ID, Cicle.class);
+        query.setParameter("id", id);
+        Cicle c = (Cicle) query.getSingleResult();
+
+        return c;
+    }
+
+    @Override
+    public List<Cicle> cercarTot() {
+        em = new EM_Controller().getEntityManager();
+
+        System.out.println("Consulta");
+        Query a = em.createQuery("FROM Cicle");
+        List<Cicle> lista = (List<Cicle>) a.getResultList();
+        return lista;
     }
 
 }

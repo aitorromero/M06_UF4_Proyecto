@@ -3,6 +3,7 @@ package controllers;
 import DAO.MatriculaDAO;
 import elementos.Alumne;
 import elementos.Matricula;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
@@ -100,38 +101,6 @@ public class Matricula_Controller implements MatriculaDAO {
         return c;
     }
 
-    public void imprimirPersona(Matricula c) {
-        System.out.println(c);
-    }
 
-    @Override
-    public void cercaAlumnePerUf(Alumne a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void cercaAlumnePerCurs(Alumne a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void cercaAlumnePerCicle(Alumne a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void cercaAlumnePerFamilia(Alumne a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void cercaMatriculaPerNif(Long nif) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void cercaMatricules() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

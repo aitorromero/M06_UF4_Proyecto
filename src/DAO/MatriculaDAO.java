@@ -4,15 +4,14 @@ import elementos.Alumne;
 import elementos.Matricula;
 
 public interface MatriculaDAO extends GenericDAO<Matricula>{
-    void cercaAlumnePerUf(Alumne a);
+    void cercaMatriculaPerUf(Alumne a);
     
-    void cercaAlumnePerCurs(Alumne a);
+    void cercaMatriculaPerCurs(Alumne a);
     
-    void cercaAlumnePerCicle(Alumne a);
+    void cercaMatriculaPerCicle(Alumne a);
     
-    void cercaAlumnePerFamilia(Alumne a);
+    void cercaMatriculaPerFamilia(Alumne a);
     
     void cercaMatriculaPerNif(Long nif);
-    
-    void cercaMatricules();
+
 }

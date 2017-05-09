@@ -3,6 +3,7 @@ package controllers;
 import DAO.FamiliaDAO;
 import elementos.Familia;
 import elementos.Modul;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
@@ -98,6 +99,28 @@ public class Familia_Controller implements FamiliaDAO {
         System.out.println("close");
         em.close();
         return c;
+    }
+
+    @Override
+    public Familia cercarPerId(int id) {
+        EntityManager em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(Familia.FAMILIA_ID, Familia.class);
+        query.setParameter("id", id);
+        Familia c = (Familia) query.getSingleResult();
+
+        return c;
+    }
+
+    @Override
+    public List<Familia> cercarTot() {
+        EntityManager em = new EM_Controller().getEntityManager();
+
+        System.out.println("Consulta");
+        Query a = em.createQuery("FROM Familia");
+        List<Familia> lista = (List<Familia>) a.getResultList();
+        return lista;
     }
 
 }
