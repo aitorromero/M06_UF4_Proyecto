@@ -32,23 +32,38 @@ public class M06_UF4_Proyecto {
         Familia_Controller fc = new Familia_Controller();
         
        
-        Alumne a1 = new Alumne(78946987L, "Capità", "Calçotets", "csdadorreo",12875);
+        Alumne a1 = new Alumne(92346987L, "¡Hilo jeje", "Casd", "csfadfasreo",19875);
         
-        //ac.insertar(a1);
-      
+        ac.insertar(a1);
+      /////////////////////////////////////////////////////////////////////meter alumno
         
-        Familia f = new Familia("Familia familiosa");
+        //Familia f = new Familia("Familia familiosa");
         
         //fc.insertar(f);
         
+        ////////////////////////////////////////////////////////////////meter familia
+        //Cicle c1 = new Cicle("El ciclito no+2", "IV grado", fc.Buscar(981L));
         
-        Cicle c1 = new Cicle("El ciclito no+2", "IV grado", fc.Buscar(981L));
+        //clc.insertar(c1);
         
-        clc.insertar(c1);
+        //fc.tancarEM();
         
-        fc.tancarEM();
+        //clc.tancarEM();
+        ////////////////////////////////////////////////////////////meter ciclo
         
-        clc.tancarEM();
+        
+        //Cicle c1 = clc.cercarPerId(1161);
+        
+       // Curs cursillo = new Curs(CursNom.primer, clc.Buscar(1161L));
+        
+        
+        
+        //clc.tancarEM();
+        
+        //cc.insertar(cursillo);
+        
+        
+        
         
 //        Cicle c1 = clc.Buscar(1161L);
 //        
