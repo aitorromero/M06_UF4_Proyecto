@@ -20,21 +20,21 @@ import javax.persistence.OneToOne;
 
 @Entity
 @NamedQueries({
-@NamedQuery(name= Matricula.MATRICULA_ALUMNE, query="SELECT m FROM Matricula m WHERE m.alumne.nif=:nif"),
-@NamedQuery(name= Matricula.MATRICULA_ALUMNE_UF, query="SELECT m FROM Matricula m WHERE m.unitatsFormatives.idUF=:uf"),
-@NamedQuery(name= Matricula.MATRICULA_ALUMNE_CURS, query="SELECT m FROM Matricula m WHERE m.unitatsFormatives.idCurs.idCurs=:curs"),
-@NamedQuery(name= Matricula.MATRICULA_ALUMNE_CICLE, query="SELECT m FROM Matricula m WHERE m.unitatsFormatives.idCurs.cicleCurs.idCicle IN (:cicle)"),
-@NamedQuery(name= Matricula.MATRICULA_ALUMNE_FAMILIA, query="SELECT m FROM Matricula m WHERE m.unitatsFormatives.idCurs.cicleCurs.familiaCicle.idF IN (:familia)")})
+@NamedQuery(name= Matricula.ALUMNE_PER_NIF, query="SELECT m FROM Matricula m WHERE m.alumne.nif=:nif"),
+@NamedQuery(name= Matricula.ALUMNE_PER_UF, query="SELECT m FROM Matricula m WHERE m.unitatsFormatives.idUF=:uf"),
+@NamedQuery(name= Matricula.ALUMNE_PER_CURS, query="SELECT m FROM Matricula m WHERE m.unitatsFormatives.idCurs.idCurs=:curs"),
+@NamedQuery(name= Matricula.ALUMNE_PER_CICLE, query="SELECT m FROM Matricula m WHERE m.unitatsFormatives.idCurs.cicleCurs.idCicle IN (:cicle)"),
+@NamedQuery(name= Matricula.ALUMNE_PER_FAMILIA, query="SELECT m FROM Matricula m WHERE m.unitatsFormatives.idCurs.cicleCurs.familiaCicle.idF IN (:familia)")})
 
 public class Matricula implements Serializable{
     
     private static final long serialVersionUID = 1L;
     
-    public static final String MATRICULA_ALUMNE = "buscar_per_alumne";
-    public static final String MATRICULA_ALUMNE_UF = "buscar_per_UF";
-    public static final String MATRICULA_ALUMNE_CURS = "buscar_per_Curs";
-    public static final String MATRICULA_ALUMNE_CICLE = "buscar_per_Cicle";
-    public static final String MATRICULA_ALUMNE_FAMILIA = "buscar_per_Familia";
+    public static final String ALUMNE_PER_NIF = "buscar_per_nif";
+    public static final String ALUMNE_PER_UF = "buscar_per_UF";
+    public static final String ALUMNE_PER_CURS = "buscar_per_Curs";
+    public static final String ALUMNE_PER_CICLE = "buscar_per_Cicle";
+    public static final String ALUMNE_PER_FAMILIA = "buscar_per_Familia";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

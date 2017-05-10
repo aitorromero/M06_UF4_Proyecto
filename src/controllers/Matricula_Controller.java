@@ -2,13 +2,18 @@ package controllers;
 
 import DAO.MatriculaDAO;
 import elementos.Alumne;
+import elementos.Cicle;
+import elementos.Curs;
+import elementos.Familia;
 import elementos.Matricula;
+import elementos.UnitatFormativa;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 public class Matricula_Controller implements MatriculaDAO {
+    EntityManager em;
 
     @Override
     public void insertar(Matricula p) {
@@ -100,83 +105,47 @@ public class Matricula_Controller implements MatriculaDAO {
         em.close();
         return c;
     }
-/*
+
     @Override
-    public Matricula cercaMatriculaPerUf(Alumne a) {
-        EntityManager em = new EM_Controller().getEntityManager();
+    public Matricula cercaAlumnePerUf(UnitatFormativa uf) {
+return null;
+    }
+
+    @Override
+    public Matricula cercaAlumnePerCurs(Curs curs) {
+return null;
+    }
+
+    @Override
+    public Matricula cercaAlumnePerCicle(Cicle cicle) {
+return null;
+    }
+
+    @Override
+    public Matricula cercaAlumnePerFamilia(Familia familia) {
+        return null;
+    }
+
+    @Override
+    public Matricula cercaAlumnePerNif(Long nif) {
+        em = new EM_Controller().getEntityManager();
 
         System.out.println("busqueda");
-        Query query = em.createNamedQuery(Familia.FAMILIA_ID, Familia.class);
-        query.setParameter("id", id);
-        Matricula c = (Matricula) query.getSingleResult();
-        return c;
-    }
+        Query query = em.createNamedQuery(Matricula.ALUMNE_PER_NIF, Matricula.class);
+        query.setParameter("nif", nif);
+        Matricula a = (Matricula) query.getSingleResult();
 
-    @Override
-    public Matricula cercaMatriculaPerCurs(Alumne a) {
-        
-    }
-
-    @Override
-    public Matricula cercaMatriculaPerCicle(Alumne a) {
-        
-    }
-
-    @Override
-    public Matricula cercaMatriculaPerFamilia(Alumne a) {
-        
-    }
-
-    @Override
-    public Matricula cercaMatriculaPerNif(Long nif) {
-        
+        return a;
     }
 
     @Override
     public List<Matricula> cercarTot() {
-        
+return null;
     }
 
     @Override
     public Matricula cercarPerId(int id) {
-        
-    }
-
-*/
-
-    @Override
-    public Matricula cercaMatriculaPerUf(Alumne a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Matricula cercaMatriculaPerCurs(Alumne a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Matricula cercaMatriculaPerCicle(Alumne a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Matricula cercaMatriculaPerFamilia(Alumne a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Matricula cercaMatriculaPerNif(Long nif) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Matricula> cercarTot() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Matricula cercarPerId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+return null;
     }
 
 }

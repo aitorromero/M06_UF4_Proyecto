@@ -1,17 +1,20 @@
 package DAO;
 
-import elementos.Alumne;
+import elementos.Cicle;
+import elementos.Curs;
+import elementos.Familia;
 import elementos.Matricula;
+import elementos.UnitatFormativa;
 
 public interface MatriculaDAO extends GenericDAO<Matricula>{
-    Matricula cercaMatriculaPerUf(Alumne a);
+    Matricula cercaAlumnePerUf(UnitatFormativa uf);
     
-    Matricula cercaMatriculaPerCurs(Alumne a);
+    Matricula cercaAlumnePerCurs(Curs curs);
     
-    Matricula cercaMatriculaPerCicle(Alumne a);
+    Matricula cercaAlumnePerCicle(Cicle cicle);
     
-    Matricula cercaMatriculaPerFamilia(Alumne a);
+    Matricula cercaAlumnePerFamilia(Familia familia);
     
-    Matricula cercaMatriculaPerNif(Long nif);
+    Matricula cercaAlumnePerNif(Long nif);
 
 }
