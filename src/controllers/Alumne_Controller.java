@@ -8,12 +8,13 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 public class Alumne_Controller implements AlumneDAO {
+
     EntityManager em;
 
     @Override
     public void insertar(Alumne p) {
         EM_Controller oem = new EM_Controller();
-        EntityManager em = oem.getEntityManager();
+        em = oem.getEntityManager();
 
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
@@ -35,7 +36,7 @@ public class Alumne_Controller implements AlumneDAO {
     @Override
     public void modificar(Alumne p) {
         EM_Controller oem = new EM_Controller();
-        EntityManager em = oem.getEntityManager();
+        em = oem.getEntityManager();
 
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
@@ -57,7 +58,7 @@ public class Alumne_Controller implements AlumneDAO {
     @Override
     public void eliminar(Alumne p) {
         EM_Controller oem = new EM_Controller();
-        EntityManager em = oem.getEntityManager();
+        em = oem.getEntityManager();
 
         //em.getTransaction().begin();
         EntityTransaction etx = em.getTransaction();
@@ -77,7 +78,7 @@ public class Alumne_Controller implements AlumneDAO {
     }
 
     public Alumne Buscar(Long id) {
-        EntityManager em = new EM_Controller().getEntityManager();
+        em = new EM_Controller().getEntityManager();
 
         System.out.println("busqueda");
 
@@ -90,7 +91,7 @@ public class Alumne_Controller implements AlumneDAO {
     }
 
     public Alumne BuscarPerNom(String nom) {
-        EntityManager em = new EM_Controller().getEntityManager();
+        em = new EM_Controller().getEntityManager();
 
         System.out.println("Busqueda per nom");
         Query query = em.createNamedQuery("cercaClientNom", Alumne.class);
@@ -101,28 +102,61 @@ public class Alumne_Controller implements AlumneDAO {
         return c;
     }
 
-    public void imprimirPersona(Alumne a) {
-        System.out.println(a);
-    }
 
     @Override
-    public Alumne cercarAlumnesPerId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Alumne cercarPerId(int id) {
+        em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(Alumne.ID_ALUMNE, Alumne.class);
+        query.setParameter("id", id);
+        Alumne a = (Alumne) query.getSingleResult();
+
+        return a;
     }
 
     @Override
     public List<Alumne> cercaAlumnePerNom(String nom) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(Alumne.NOM_ALUMNE, Alumne.class);
+        query.setParameter("nom", nom);
+        List<Alumne> lista = (List<Alumne>) query.getResultList();
+        return lista;
     }
 
     @Override
     public List<Alumne> cercaAlumnePerCognom(String cognom) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(Alumne.COGNOM_ALUMNE, Alumne.class);
+        query.setParameter("cognom", cognom);
+        List<Alumne> lista = (List<Alumne>) query.getResultList();
+        return lista;
     }
 
     @Override
-    public List<Alumne> cercarAlumnes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Alumne> cercarTot() {
+        em = new EM_Controller().getEntityManager();
+
+        System.out.println("Consulta");
+        Query a = em.createQuery("FROM Alumne");
+        List<Alumne> lista = (List<Alumne>) a.getResultList();
+        return lista;
+    }
+
+    @Override
+    public Alumne cercarPerNif(Long nif) {
+        em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(Alumne.NIF_ALUMNE, Alumne.class);
+        query.setParameter("nif", nif);
+        Alumne a = (Alumne) query.getSingleResult();
+
+        return a;
     }
 
 }

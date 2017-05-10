@@ -2,12 +2,18 @@ package controllers;
 
 import DAO.MatriculaDAO;
 import elementos.Alumne;
+import elementos.Cicle;
+import elementos.Curs;
+import elementos.Familia;
 import elementos.Matricula;
+import elementos.UnitatFormativa;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 public class Matricula_Controller implements MatriculaDAO {
+    EntityManager em;
 
     @Override
     public void insertar(Matricula p) {
@@ -100,38 +106,46 @@ public class Matricula_Controller implements MatriculaDAO {
         return c;
     }
 
-    public void imprimirPersona(Matricula c) {
-        System.out.println(c);
+    @Override
+    public Matricula cercaAlumnePerUf(UnitatFormativa uf) {
+return null;
     }
 
     @Override
-    public void cercaAlumnePerUf(Alumne a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Matricula cercaAlumnePerCurs(Curs curs) {
+return null;
     }
 
     @Override
-    public void cercaAlumnePerCurs(Alumne a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Matricula cercaAlumnePerCicle(Cicle cicle) {
+return null;
     }
 
     @Override
-    public void cercaAlumnePerCicle(Alumne a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Matricula cercaAlumnePerFamilia(Familia familia) {
+        return null;
     }
 
     @Override
-    public void cercaAlumnePerFamilia(Alumne a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Matricula cercaAlumnePerNif(Long nif) {
+        em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(Matricula.ALUMNE_PER_NIF, Matricula.class);
+        query.setParameter("nif", nif);
+        Matricula a = (Matricula) query.getSingleResult();
+
+        return a;
     }
 
     @Override
-    public void cercaMatriculaPerNif(Long nif) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Matricula> cercarTot() {
+return null;
     }
 
     @Override
-    public void cercaMatricules() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Matricula cercarPerId(int id) {
+return null;
     }
 
 }

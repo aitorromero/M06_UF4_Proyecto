@@ -1,5 +1,7 @@
 package DAO;
 
+import java.util.List;
+
 public interface GenericDAO<T>{
     void insertar (T t);
     
@@ -7,5 +9,8 @@ public interface GenericDAO<T>{
     
     void eliminar (T t);
     
-   
+    List<T> cercarTot();
+    
+    T cercarPerId(int id);
+
 }

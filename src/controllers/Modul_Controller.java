@@ -2,6 +2,7 @@ package controllers;
 
 import DAO.ModulDAO;
 import elementos.Modul;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
@@ -99,8 +100,26 @@ public class Modul_Controller implements ModulDAO {
         return c;
     }
 
-    public void imprimirPersona(Modul c) {
-        System.out.println(c);
+    @Override
+    public Modul cercarPerId(int id) {
+        EntityManager em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(Modul.MODUL_ID, Modul.class);
+        query.setParameter("id", id);
+        Modul c = (Modul) query.getSingleResult();
+
+        return c;    
+    }
+
+    @Override
+    public List<Modul> cercarTot() {
+        EntityManager em = new EM_Controller().getEntityManager();
+
+        System.out.println("Consulta");
+        Query a = em.createQuery("FROM Modul");
+        List<Modul> lista = (List<Modul>) a.getResultList();
+        return lista;
     }
 
 }

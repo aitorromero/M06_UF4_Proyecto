@@ -2,6 +2,7 @@ package controllers;
 
 import DAO.UnitatFormativaDAO;
 import elementos.UnitatFormativa;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
@@ -99,8 +100,26 @@ public class Unitat_Controller implements UnitatFormativaDAO {
         return c;
     }
 
-    public void imprimirPersona(UnitatFormativa c) {
-        System.out.println(c);
+    @Override
+    public UnitatFormativa cercarPerId(int id) {
+        EntityManager em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(UnitatFormativa.UNITATFORMATIVA_ID, UnitatFormativa.class);
+        query.setParameter("id", id);
+        UnitatFormativa c = (UnitatFormativa) query.getSingleResult();
+
+        return c;    
+    }
+
+    @Override
+    public List<UnitatFormativa> cercarTot() {
+        EntityManager em = new EM_Controller().getEntityManager();
+
+        System.out.println("Consulta");
+        Query a = em.createQuery("FROM Modul");
+        List<UnitatFormativa> lista = (List<UnitatFormativa>) a.getResultList();
+        return lista;
     }
 
 }
