@@ -34,9 +34,16 @@ public class Curs implements Serializable{
     @ManyToOne
     @JoinColumn
     private Cicle cicle;
-    @OneToMany(mappedBy="curs", cascade = CascadeType.ALL)  
+    
+    
+    @OneToMany(mappedBy="matricules", cascade = CascadeType.ALL)  
     private List<UnitatFormativa> llistatUF;
 
+    
+     @OneToMany (mappedBy = "curs", cascade = CascadeType.ALL)
+    private List<Modul> llistaModuls;
+     
+     
     public Curs() {
     }
 
@@ -69,6 +76,16 @@ public class Curs implements Serializable{
         this.cicle = cicle;
     }
 
+    public List<Modul> getLlistaModuls() {
+        return llistaModuls;
+    }
+
+    public void setLlistaModuls(List<Modul> llistaModuls) {
+        this.llistaModuls = llistaModuls;
+    }
+
+    
+    
     public List<UnitatFormativa> getLlistatUF() {
         return llistatUF;
     }

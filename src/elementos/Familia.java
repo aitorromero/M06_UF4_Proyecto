@@ -26,11 +26,12 @@ public class Familia implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nom;
+    
     @OneToMany(mappedBy="familia", cascade = CascadeType.ALL)
     private List<Cicle> llistaCicles;
 
-    public Familia(Long id, String nom) {
-        this.id = id;
+    public Familia( String nom) {
+       
         this.nom = nom;
     }
 

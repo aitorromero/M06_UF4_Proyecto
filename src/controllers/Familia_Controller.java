@@ -76,16 +76,14 @@ public class Familia_Controller implements FamiliaDAO {
         em.close();
     }
 
-    public Modul Buscar(Long id) {
+    public Familia Buscar(Long id) {
         EntityManager em = new EM_Controller().getEntityManager();
 
         System.out.println("busqueda");
 
-        Modul c = (Modul) em.find(Modul.class, id);
+        Familia c = (Familia) em.find(Familia.class, id);
 
-        System.out.println("close");
-        em.close();
-
+     
         return c;
     }
 
@@ -99,6 +97,14 @@ public class Familia_Controller implements FamiliaDAO {
         System.out.println("close");
         em.close();
         return c;
+    }
+    
+    public void tancarEM(){
+        EntityManager em = new EM_Controller().getEntityManager();
+
+           System.out.println("close");
+        
+        em.close();
     }
 
     @Override
