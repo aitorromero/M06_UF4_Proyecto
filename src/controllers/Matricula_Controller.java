@@ -13,6 +13,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 public class Matricula_Controller implements MatriculaDAO {
+
     EntityManager em;
 
     @Override
@@ -107,26 +108,6 @@ public class Matricula_Controller implements MatriculaDAO {
     }
 
     @Override
-    public Matricula cercaAlumnePerUf(UnitatFormativa uf) {
-return null;
-    }
-
-    @Override
-    public Matricula cercaAlumnePerCurs(Curs curs) {
-return null;
-    }
-
-    @Override
-    public Matricula cercaAlumnePerCicle(Cicle cicle) {
-return null;
-    }
-
-    @Override
-    public Matricula cercaAlumnePerFamilia(Familia familia) {
-        return null;
-    }
-
-    @Override
     public Matricula cercaAlumnePerNif(Long nif) {
         em = new EM_Controller().getEntityManager();
 
@@ -140,12 +121,61 @@ return null;
 
     @Override
     public List<Matricula> cercarTot() {
-return null;
+        EntityManager em = new EM_Controller().getEntityManager();
+
+        System.out.println("Consulta");
+        Query a = em.createQuery("FROM Matricula");
+        List<Matricula> lista = (List<Matricula>) a.getResultList();
+        return lista;
     }
 
     @Override
     public Matricula cercarPerId(int id) {
-return null;
+        return null;
+    }
+
+    @Override
+    public List<Alumne> cercaAlumnePerUf(UnitatFormativa uf) {
+        em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(Matricula.ALUMNE_PER_UF, Matricula.class);
+        query.setParameter("uf", uf);
+        List<Alumne> lista = (List<Alumne>) query.getResultList();
+        return lista;
+    }
+
+    @Override
+    public List<Alumne> cercaAlumnePerCurs(Curs curs) {
+        em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(Matricula.ALUMNE_PER_CURS, Matricula.class);
+        query.setParameter("curs", curs);
+        List<Alumne> lista = (List<Alumne>) query.getResultList();
+        return lista;
+    }
+
+    @Override
+    public List<Alumne> cercaAlumnePerCicle(Cicle cicle) {
+        em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(Matricula.ALUMNE_PER_CICLE, Matricula.class);
+        query.setParameter("cicle", cicle);
+        List<Alumne> lista = (List<Alumne>) query.getResultList();
+        return lista;
+    }
+
+    @Override
+    public List<Alumne> cercaAlumnePerFamilia(Familia familia) {
+        em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(Matricula.ALUMNE_PER_FAMILIA, Matricula.class);
+        query.setParameter("familia", familia);
+        List<Alumne> lista = (List<Alumne>) query.getResultList();
+        return lista;
     }
 
 }
