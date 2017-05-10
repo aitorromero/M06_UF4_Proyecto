@@ -85,6 +85,7 @@ public class Cicle_Controller implements CicleDAO {
 
         Cicle c = (Cicle) em.find(Cicle.class, id);
 
+
         return c;
     }
 
