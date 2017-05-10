@@ -107,7 +107,8 @@ public class Cicle_Controller implements CicleDAO {
         System.out.println("close");
         
         em.close();
-
+    }
+    
     @Override
     public Cicle cercarPerId(int id) {
         em = new EM_Controller().getEntityManager();
