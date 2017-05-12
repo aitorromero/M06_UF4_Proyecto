@@ -108,7 +108,7 @@ public class Matricula_Controller implements MatriculaDAO {
     }
 
     @Override
-    public Matricula cercaAlumnePerNif(Long nif) {
+    public Matricula cercaMatriculaPerNif(Long nif) {
         em = new EM_Controller().getEntityManager();
 
         System.out.println("busqueda");

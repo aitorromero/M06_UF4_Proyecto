@@ -17,6 +17,6 @@ public interface MatriculaDAO extends GenericDAO<Matricula>{
     
     List<Alumne> cercaAlumnePerFamilia(Familia familia);
     
-    Matricula cercaAlumnePerNif(Long nif);
+    Matricula cercaMatriculaPerNif(Long nif);
 
 }
