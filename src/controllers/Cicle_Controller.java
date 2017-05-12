@@ -3,6 +3,7 @@ package controllers;
 import DAO.CicleDAO;
 import elementos.Alumne;
 import elementos.Cicle;
+import elementos.Familia;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -29,9 +30,9 @@ public class Cicle_Controller implements CicleDAO {
         System.out.println("commit");
         //em.getTransaction().commit();
         etx.commit();
-
-        System.out.println("close");
-        em.close();
+//
+//        System.out.println("close");
+//        em.close();
     }
 
     @Override
@@ -120,6 +121,9 @@ public class Cicle_Controller implements CicleDAO {
 
         return c;
     }
+    
+    
+    
 
     @Override
     public List<Cicle> cercarTot() {
@@ -129,6 +133,27 @@ public class Cicle_Controller implements CicleDAO {
         Query a = em.createQuery("FROM Cicle");
         List<Cicle> lista = (List<Cicle>) a.getResultList();
         return lista;
+    }
+
+    @Override
+    public List<Cicle> cercaPerFamilia(Familia familia) {
+    
+     em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(Cicle.CICLE_FAMILIA, Cicle.class);
+        
+        query.setParameter("familia", familia);
+        
+        List<Cicle> families = query.getResultList();
+        
+        
+        System.out.println("close");
+        em.close();
+        
+        return families;
+        
+        
     }
 
 }

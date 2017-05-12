@@ -50,8 +50,6 @@ public class Familia_Controller implements FamiliaDAO {
         //em.getTransaction().commit();
         etx.commit();
 
-        System.out.println("close");
-        em.close();
     }
 
     @Override

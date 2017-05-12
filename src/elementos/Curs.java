@@ -31,7 +31,7 @@ public class Curs implements Serializable{
     
     private CursNom cursNom;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Cicle cicle;
     

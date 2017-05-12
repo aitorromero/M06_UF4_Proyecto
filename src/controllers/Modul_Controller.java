@@ -82,11 +82,19 @@ public class Modul_Controller implements ModulDAO {
 
         Modul c = (Modul) em.find(Modul.class, id);
 
+        return c;
+    }
+    
+    
+    public void tancarEM(){
+        EntityManager em = new EM_Controller().getEntityManager();
+
+        
         System.out.println("close");
         em.close();
 
-        return c;
     }
+    
 
     public Modul BuscarPerNom(String nom) {
         EntityManager em = new EM_Controller().getEntityManager();

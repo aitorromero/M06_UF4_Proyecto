@@ -82,10 +82,15 @@ public class Curs_Controller implements CursDAO {
 
         Curs c = (Curs) em.find(Curs.class, id);
 
-        System.out.println("close");
-        em.close();
 
         return c;
+    }
+    
+    public void tancarEm(){
+        EntityManager em = new EM_Controller().getEntityManager();
+        
+        System.out.println("close");
+        em.close();
     }
 
     public Curs BuscarPerNom(String nom) {

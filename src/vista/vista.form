@@ -267,7 +267,7 @@
                               <Component id="btnCercaPerCognAlum" max="32767" attributes="0"/>
                               <Component id="btnCercaTotsAlum" max="32767" attributes="0"/>
                               <Component id="btnCercaPerNIFAlum" max="32767" attributes="0"/>
-                              <Component id="jButton1" max="32767" attributes="0"/>
+                              <Component id="btnNetejarAlum" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -283,7 +283,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnCercaPerNIFAlum" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNetejarAlum" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="21" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -314,12 +314,12 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCercaTotsAlumActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton1">
+                <Component class="javax.swing.JButton" name="btnNetejarAlum">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Netejar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNetejarAlumActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -466,7 +466,7 @@
                                       <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="jScrollPane2" pref="505" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane2" pref="508" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -510,7 +510,6 @@
                                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="btnCercaTotsCicle" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane2" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
@@ -702,7 +701,7 @@
                                   </Group>
                                   <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="198" max="32767" attributes="0"/>
+                              <EmptySpace pref="201" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                                   <Component id="jScrollPane3" min="-2" pref="222" max="-2" attributes="0"/>
@@ -899,12 +898,14 @@
                                                   <Component id="btnElimFamilia" max="32767" attributes="0"/>
                                                   <Component id="btnCercaTotsFamilia" pref="100" max="32767" attributes="0"/>
                                               </Group>
+                                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                                              <Component id="btnFamiliaLimpiar" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="368" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -914,7 +915,7 @@
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane4" pref="619" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane4" pref="622" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -932,6 +933,7 @@
                           <Component id="edNomFamilia" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnInserFamilia" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnElimFamilia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnFamiliaLimpiar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -975,7 +977,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable4">
+                <Component class="javax.swing.JTable" name="tabFamiliaCicle">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="4" rowCount="4">
@@ -993,11 +995,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Inserir"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInserFamiliaActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnModifFamilia">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Modificar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModifFamiliaActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnElimFamilia">
               <Properties>
@@ -1015,6 +1023,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cercar per ID"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCercaPerIDFamiliaActionPerformed"/>
+              </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane6">
               <AuxValues>
@@ -1023,7 +1034,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable6">
+                <Component class="javax.swing.JTable" name="tabFamilia">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="4" rowCount="4">
@@ -1041,6 +1052,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cercar Tots"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCercaTotsFamiliaActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
               <Properties>
@@ -1051,6 +1065,14 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cicle de la familia"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnFamiliaLimpiar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Netejar Camps"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFamiliaLimpiarActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1066,7 +1088,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="978" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="981" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -1115,7 +1137,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="257" max="32767" attributes="0"/>
+                              <EmptySpace pref="260" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                                   <Component id="jScrollPane10" min="-2" pref="293" max="-2" attributes="0"/>
@@ -1307,7 +1329,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="183" max="32767" attributes="0"/>
+                              <EmptySpace pref="186" max="32767" attributes="0"/>
                               <Component id="jScrollPane12" min="-2" pref="340" max="-2" attributes="0"/>
                           </Group>
                       </Group>
