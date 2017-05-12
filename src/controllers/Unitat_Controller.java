@@ -101,7 +101,7 @@ public class Unitat_Controller implements UnitatFormativaDAO {
     }
 
     @Override
-    public UnitatFormativa cercarPerId(int id) {
+    public UnitatFormativa cercarPerId(Long id) {
         EntityManager em = new EM_Controller().getEntityManager();
 
         System.out.println("busqueda");

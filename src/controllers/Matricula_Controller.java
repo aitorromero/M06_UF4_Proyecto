@@ -217,7 +217,7 @@ public class Matricula_Controller implements MatriculaDAO {
     }
 
     @Override
-    public Matricula cercarPerId(int id) {
+    public Matricula cercarPerId(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

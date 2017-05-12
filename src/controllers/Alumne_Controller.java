@@ -104,14 +104,15 @@ public class Alumne_Controller implements AlumneDAO {
 
 
     @Override
-    public Alumne cercarPerId(int id) {
+    public Alumne cercarPerId(Long id) {
         em = new EM_Controller().getEntityManager();
 
         System.out.println("busqueda");
         Query query = em.createNamedQuery(Alumne.ID_ALUMNE, Alumne.class);
         query.setParameter("id", id);
         Alumne a = (Alumne) query.getSingleResult();
-
+        System.out.println("close");
+        em.close();        
         return a;
     }
 
@@ -134,6 +135,8 @@ public class Alumne_Controller implements AlumneDAO {
         Query query = em.createNamedQuery(Alumne.COGNOM_ALUMNE, Alumne.class);
         query.setParameter("cognom", cognom);
         List<Alumne> lista = (List<Alumne>) query.getResultList();
+        System.out.println("close");
+        em.close();
         return lista;
     }
 
@@ -144,6 +147,8 @@ public class Alumne_Controller implements AlumneDAO {
         System.out.println("Consulta");
         Query a = em.createQuery("FROM Alumne");
         List<Alumne> lista = (List<Alumne>) a.getResultList();
+        System.out.println("close");
+        em.close();        
         return lista;
     }
 
@@ -155,7 +160,8 @@ public class Alumne_Controller implements AlumneDAO {
         Query query = em.createNamedQuery(Alumne.NIF_ALUMNE, Alumne.class);
         query.setParameter("nif", nif);
         Alumne a = (Alumne) query.getSingleResult();
-
+        System.out.println("close");
+        em.close();        
         return a;
     }
 

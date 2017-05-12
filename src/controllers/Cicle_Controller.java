@@ -110,7 +110,7 @@ public class Cicle_Controller implements CicleDAO {
     }
 
     @Override
-    public Cicle cercarPerId(int id) {
+    public Cicle cercarPerId(Long id) {
         em = new EM_Controller().getEntityManager();
 
         System.out.println("busqueda");
