@@ -23,6 +23,7 @@ public class vista extends javax.swing.JFrame {
      */
     public vista() {
         initComponents();
+        limpiaTablas();
     }
 
     /**
@@ -995,6 +996,12 @@ public class vista extends javax.swing.JFrame {
                 alumne.getTelefon()});
 
         }
+    }
+    
+    public void limpiaTablas(){
+        String[] col = {"ID", "NOM", "COGNOM", "NIF", "CORREU", "TEL"};
+        DefaultTableModel dft = new DefaultTableModel(col, 0);
+        tabAlumn.setModel(dft);
     }
 
     /**

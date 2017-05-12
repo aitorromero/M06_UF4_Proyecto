@@ -85,7 +85,6 @@ public class Cicle_Controller implements CicleDAO {
 
         Cicle c = (Cicle) em.find(Cicle.class, id);
 
-
         return c;
     }
 
@@ -101,14 +100,15 @@ public class Cicle_Controller implements CicleDAO {
         return c;
     }
 
-    public void tancarEM(){
+    public void tancarEM() {
         EntityManager em = new EM_Controller().getEntityManager();
 
         System.out.println("close");
-        
+
         em.close();
+
     }
-    
+
     @Override
     public Cicle cercarPerId(int id) {
         em = new EM_Controller().getEntityManager();
@@ -130,6 +130,5 @@ public class Cicle_Controller implements CicleDAO {
         List<Cicle> lista = (List<Cicle>) a.getResultList();
         return lista;
     }
-
 
 }

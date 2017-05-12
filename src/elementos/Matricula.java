@@ -19,6 +19,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
+/*
 @NamedQueries({
 @NamedQuery(name= Matricula.ALUMNE_PER_ID, query="SELECT m FROM Matricula m WHERE m.id=:id"),
 @NamedQuery(name= Matricula.ALUMNE_PER_NIF, query="SELECT m FROM Matricula m WHERE m.alumne.nif=:nif"),
@@ -26,17 +27,17 @@ import javax.persistence.OneToOne;
 @NamedQuery(name= Matricula.ALUMNE_PER_CURS, query="SELECT m FROM Matricula m WHERE m.unitatFormatives.idCurs.idCurs=:curs"),
 @NamedQuery(name= Matricula.ALUMNE_PER_CICLE, query="SELECT m FROM Matricula m WHERE m.unitatFormatives.idCurs.cicleCurs.idCicle IN (:cicle)"),
 @NamedQuery(name= Matricula.ALUMNE_PER_FAMILIA, query="SELECT m FROM Matricula m WHERE m.unitatFormatives.idCurs.cicleCurs.familiaCicle.idF IN (:familia)")})
-
+*/
 public class Matricula implements Serializable{
     
     private static final long serialVersionUID = 1L;
-    
+    /*
     public static final String ALUMNE_PER_ID = "buscar_per_id";
     public static final String ALUMNE_PER_NIF = "buscar_per_nif";
     public static final String ALUMNE_PER_UF = "buscar_per_UF";
     public static final String ALUMNE_PER_CURS = "buscar_per_Curs";
     public static final String ALUMNE_PER_CICLE = "buscar_per_Cicle";
-    public static final String ALUMNE_PER_FAMILIA = "buscar_per_Familia";
+    public static final String ALUMNE_PER_FAMILIA = "buscar_per_Familia";*/
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -106,7 +106,7 @@ public class Matricula_Controller implements MatriculaDAO {
         em.close();
         return c;
     }
-
+/*
     @Override
     public Matricula cercaMatriculaPerNif(Long nif) {
         em = new EM_Controller().getEntityManager();
@@ -184,5 +184,40 @@ public class Matricula_Controller implements MatriculaDAO {
         List<Alumne> lista = (List<Alumne>) query.getResultList();
         return lista;
     }
+*/
 
+    @Override
+    public List<Alumne> cercaAlumnePerUf(UnitatFormativa uf) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Alumne> cercaAlumnePerCurs(Curs curs) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Alumne> cercaAlumnePerCicle(Cicle cicle) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Alumne> cercaAlumnePerFamilia(Familia familia) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Matricula cercaMatriculaPerNif(Long nif) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Matricula> cercarTot() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Matricula cercarPerId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
