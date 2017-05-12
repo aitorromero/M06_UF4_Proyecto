@@ -131,7 +131,14 @@ public class Matricula_Controller implements MatriculaDAO {
 
     @Override
     public Matricula cercarPerId(int id) {
-        return null;
+        EntityManager em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(Matricula.ALUMNE_PER_ID, Matricula.class);
+        query.setParameter("id", id);
+        Matricula c = (Matricula) query.getSingleResult();
+
+        return c;
     }
 
     @Override
