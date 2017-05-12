@@ -15,6 +15,7 @@ import controllers.Unitat_Controller;
 import elementos.Alumne;
 import elementos.Cicle;
 import elementos.Familia;
+import elementos.Matricula;
 import java.util.List;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -1193,6 +1194,20 @@ public class vista extends javax.swing.JFrame {
             lAlumn.getTelefon()});
 
     }
+    
+    public void crearTablaAlumnMatricula(List<Matricula> matr){
+        String[] col = {"ID", "DESCOMPTE", "FECHA", "IMPORTE", "MODALITAT"};
+        DefaultTableModel dft = new DefaultTableModel(col, 0);
+        tabAlumMatriculas.setModel(dft);
+        for (Matricula m : matr) {
+            dft.addRow(new Object[]{
+                m.getId(), 
+                m.getDescompte(), 
+                m.getFecha(), 
+                m.getImporte(), 
+                m.getModalitat()});
+        }
+    }
 
     public void crearTablaFamilia(List<Familia> listaFami) {
         String[] col = {"ID", "NOM"};
@@ -1218,7 +1233,11 @@ public class vista extends javax.swing.JFrame {
         DefaultTableModel dft = new DefaultTableModel(col, 0);
         tabFamiliaCicle.setModel(dft);
         for (Cicle c : cicles) {
-            dft.addRow(new Object[]{c.getId(), c.getGrau(), c.getNom(), c.getFamilia().getId()});
+            dft.addRow(new Object[]{
+                c.getId(), 
+                c.getGrau(), 
+                c.getNom(), 
+                c.getFamilia().getId()});
 
         }
 
