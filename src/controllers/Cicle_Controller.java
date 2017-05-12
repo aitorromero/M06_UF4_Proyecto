@@ -29,9 +29,9 @@ public class Cicle_Controller implements CicleDAO {
         System.out.println("commit");
         //em.getTransaction().commit();
         etx.commit();
-
-        System.out.println("close");
-        em.close();
+//
+//        System.out.println("close");
+//        em.close();
     }
 
     @Override

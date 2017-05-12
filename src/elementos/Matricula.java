@@ -21,10 +21,11 @@ import javax.persistence.OneToOne;
 @Entity
 @NamedQueries({
 @NamedQuery(name= Matricula.ALUMNE_PER_NIF, query="SELECT m FROM Matricula m WHERE m.alumne.nif=:nif"),
-@NamedQuery(name= Matricula.ALUMNE_PER_UF, query="SELECT m FROM Matricula m WHERE m.unitatFormatives.idUF=:uf"),
-@NamedQuery(name= Matricula.ALUMNE_PER_CURS, query="SELECT m FROM Matricula m WHERE m.unitatFormatives.idCurs.idCurs=:curs"),
-@NamedQuery(name= Matricula.ALUMNE_PER_CICLE, query="SELECT m FROM Matricula m WHERE m.unitatFormatives.idCurs.cicleCurs.idCicle IN (:cicle)"),
-@NamedQuery(name= Matricula.ALUMNE_PER_FAMILIA, query="SELECT m FROM Matricula m WHERE m.unitatFormatives.idCurs.cicleCurs.familiaCicle.idF IN (:familia)")})
+//@NamedQuery(name= Matricula.ALUMNE_PER_UF, query="SELECT m FROM Matricula m WHERE m.unitatFormatives.idUF=:uf"),
+//@NamedQuery(name= Matricula.ALUMNE_PER_CURS, query="SELECT m FROM Matricula m WHERE m.unitatFormatives.idCurs.idCurs=:curs"),
+//@NamedQuery(name= Matricula.ALUMNE_PER_CICLE, query="SELECT m FROM Matricula m WHERE m.unitatFormatives.idCurs.cicleCurs.idCicle IN (:cicle)"),
+//@NamedQuery(name= Matricula.ALUMNE_PER_FAMILIA, query="SELECT m FROM Matricula m WHERE m.unitatFormatives.idCurs.cicleCurs.familiaCicle.idF IN (:familia)")
+})
 
 public class Matricula implements Serializable{
     

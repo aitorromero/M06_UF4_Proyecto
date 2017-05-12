@@ -28,15 +28,14 @@ public class UnitatFormativa implements Serializable{
     private String nom;
     private int hores;
     
-    
-    @ManyToMany (cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Matricula> matricules;    
     
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne (cascade = CascadeType.PERSIST)
     @JoinColumn
     private Modul modul;    
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn
     private Curs curs;
 

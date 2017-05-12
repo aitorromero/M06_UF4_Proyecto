@@ -28,11 +28,11 @@ public class Modul implements Serializable{
     private Long id;
     private String nom;  
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "idCurs")
     private Curs curs;
     
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne (cascade = CascadeType.PERSIST)
     @JoinColumn
     private Cicle cicle;
     
@@ -42,12 +42,18 @@ public class Modul implements Serializable{
     public Modul() {
     }
 
-    public Modul(Long id, String nom, Curs curs,Cicle cicle) {
-        this.id = id;
+    public Modul(String nom, Curs curs,Cicle cicle) {
+        
         this.nom = nom;
         this.cicle=cicle;
         this.curs = curs;
     }
+
+    public Modul(String nom) {
+        this.nom = nom;
+    }
+    
+    
 
     public Curs getCurs() {
         return curs;
