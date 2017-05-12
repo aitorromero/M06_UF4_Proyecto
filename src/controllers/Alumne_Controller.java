@@ -104,7 +104,7 @@ public class Alumne_Controller implements AlumneDAO {
 
 
     @Override
-    public Alumne cercarPerId(int id) {
+    public Alumne cercarPerId(Long id) {
         em = new EM_Controller().getEntityManager();
 
         System.out.println("busqueda");

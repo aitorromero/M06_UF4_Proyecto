@@ -106,7 +106,7 @@ public class Curs_Controller implements CursDAO {
     }
 
     @Override
-    public Curs cercarPerId(int id) {
+    public Curs cercarPerId(Long id) {
         EntityManager em = new EM_Controller().getEntityManager();
 
         System.out.println("busqueda");

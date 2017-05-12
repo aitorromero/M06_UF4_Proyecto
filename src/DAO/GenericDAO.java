@@ -11,6 +11,6 @@ public interface GenericDAO<T>{
     
     List<T> cercarTot();
     
-    T cercarPerId(int id);
+    T cercarPerId(Long id);
 
 }

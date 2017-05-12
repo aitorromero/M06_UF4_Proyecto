@@ -106,7 +106,7 @@ public class Familia_Controller implements FamiliaDAO {
     }
 
     @Override
-    public Familia cercarPerId(int id) {
+    public Familia cercarPerId(Long id) {
         EntityManager em = new EM_Controller().getEntityManager();
 
         System.out.println("busqueda");

@@ -109,7 +109,7 @@ public class Modul_Controller implements ModulDAO {
     }
 
     @Override
-    public Modul cercarPerId(int id) {
+    public Modul cercarPerId(Long id) {
         EntityManager em = new EM_Controller().getEntityManager();
 
         System.out.println("busqueda");
