@@ -24,6 +24,9 @@ public class M06_UF4_Proyecto {
 
     public static void main(String[] args) {
         
+        
+        
+        /*
         Alumne_Controller ac = new Alumne_Controller();
         Unitat_Controller uc = new Unitat_Controller();
         Matricula_Controller mc = new Matricula_Controller();
@@ -49,7 +52,7 @@ public class M06_UF4_Proyecto {
         fc.tancarEM();
         
         clc.tancarEM();
-        
+        */
 //        Cicle c1 = clc.Buscar(1161L);
 //        
 //        c1.setFamilia(fc.Buscar(981L));
