@@ -5,11 +5,18 @@
  */
 package vista;
 
+import controllers.Alumne_Controller;
+import elementos.Alumne;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ALUMNEDAM
  */
 public class vista extends javax.swing.JFrame {
+
+    Alumne_Controller alumC = new Alumne_Controller();
 
     /**
      * Creates new form vista
@@ -54,7 +61,7 @@ public class vista extends javax.swing.JFrame {
         edIdAlumne = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
-        jTable11 = new javax.swing.JTable();
+        tabAlumn = new javax.swing.JTable();
         jLabel23 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -172,6 +179,11 @@ public class vista extends javax.swing.JFrame {
         btnCercaPerNIFAlum.setText("Cercar per NIF");
 
         btnCercaTotsAlum.setText("Cercar Tots");
+        btnCercaTotsAlum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCercaTotsAlumActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -207,7 +219,7 @@ public class vista extends javax.swing.JFrame {
 
         jLabel11.setText("Insertar la id a cercar");
 
-        jTable11.setModel(new javax.swing.table.DefaultTableModel(
+        tabAlumn.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -218,7 +230,7 @@ public class vista extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane11.setViewportView(jTable11);
+        jScrollPane11.setViewportView(tabAlumn);
 
         jLabel23.setText("Llistat d'Alumnes");
 
@@ -967,6 +979,24 @@ public class vista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCercaTotsAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCercaTotsAlumActionPerformed
+        List<Alumne> alumList = alumC.cercarTot();
+        crearTablaAlumn(alumList);
+
+    }//GEN-LAST:event_btnCercaTotsAlumActionPerformed
+
+    public void crearTablaAlumn(List<Alumne> lAlumn) {
+        String[] col = {"ID", "NOM", "COGNOM", "NIF", "CORREU", "TEL"};
+        DefaultTableModel dft = new DefaultTableModel(col, 0);
+        tabAlumn.setModel(dft);
+        for (Alumne alumne : lAlumn) {
+            dft.addRow(new Object[]{alumne.getIdAlumne(), alumne.getNom(), 
+                alumne.getCognom(), alumne.getNif(), alumne.getCorreu(), 
+                alumne.getTelefon()});
+
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -1106,7 +1136,6 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable10;
-    private javax.swing.JTable jTable11;
     private javax.swing.JTable jTable12;
     private javax.swing.JTable jTable13;
     private javax.swing.JTable jTable2;
@@ -1117,5 +1146,6 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JTable jTable7;
     private javax.swing.JTable jTable8;
     private javax.swing.JTable jTable9;
+    private javax.swing.JTable tabAlumn;
     // End of variables declaration//GEN-END:variables
 }

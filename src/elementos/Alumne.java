@@ -58,6 +58,14 @@ public class Alumne implements Serializable{
     public void setMatriculaAlumne(Matricula matriculaAlumne) {
         this.matriculaAlumne = matriculaAlumne;
     }
+
+    public Long getIdAlumne() {
+        return idAlumne;
+    }
+
+    public void setIdAlumne(Long idAlumne) {
+        this.idAlumne = idAlumne;
+    }
     
     
     public Long getNif() {
