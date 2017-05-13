@@ -461,6 +461,7 @@
                                                   <Component id="jLabel12" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
+                                          <Component id="btnCicleNetejar" min="-2" pref="120" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -524,7 +525,13 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="edCicleIdFamilia" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="edCicleIdFamilia" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                      <Component id="btnCicleNetejar" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                           <Component id="jScrollPane2" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
                       </Group>
@@ -648,6 +655,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cerca per ID"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCercaPerIDCicleActionPerformed"/>
+              </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane7">
               <AuxValues>
@@ -681,6 +691,14 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="ID Familia"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnCicleNetejar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Netejar Camps"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCicleNetejarActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -16,6 +16,7 @@ import elementos.Alumne;
 import elementos.Cicle;
 import elementos.Familia;
 import elementos.Matricula;
+import elementos.Modul;
 import java.util.List;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -103,6 +104,7 @@ public class vista extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         edCicleIdFamilia = new javax.swing.JTextField();
         textIdFamilia = new javax.swing.JLabel();
+        btnCicleNetejar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -464,6 +466,11 @@ public class vista extends javax.swing.JFrame {
         jLabel12.setText("ID per a modificar");
 
         btnCercaPerIDCicle.setText("Cerca per ID");
+        btnCercaPerIDCicle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCercaPerIDCicleActionPerformed(evt);
+            }
+        });
 
         tabCicles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -481,6 +488,13 @@ public class vista extends javax.swing.JFrame {
         jLabel18.setText("Llistat de moduls");
 
         textIdFamilia.setText("ID Familia");
+
+        btnCicleNetejar.setText("Netejar Camps");
+        btnCicleNetejar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCicleNetejarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -516,7 +530,8 @@ public class vista extends javax.swing.JFrame {
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(btnElimCicle, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                                             .addComponent(edIDCicle)
-                                            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(btnCicleNetejar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -561,7 +576,11 @@ public class vista extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(textIdFamilia)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addComponent(edCicleIdFamilia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(edCicleIdFamilia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(btnCicleNetejar))))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                 .addComponent(jLabel10)
@@ -1236,7 +1255,7 @@ public class vista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnElimFamiliaActionPerformed
 
     private void btnModifCicleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifCicleActionPerformed
-          Cicle c = cicC.Buscar(Long.valueOf(edIDCicle.getText()));
+        Cicle c = cicC.Buscar(Long.valueOf(edIDCicle.getText()));
         c.setGrau(edGrauCicle.getText());
         c.setNom(edNomCicle.getText());
         c.setFamilia(famiC.Buscar(Long.parseLong(edCicleIdFamilia.getText())));
@@ -1247,12 +1266,42 @@ public class vista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModifCicleActionPerformed
 
     private void btnElimCicleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimCicleActionPerformed
-         Cicle c = cicC.Buscar(Long.valueOf(edIDCicle.getText()));
+        Cicle c = cicC.Buscar(Long.valueOf(edIDCicle.getText()));
 
         cicC.eliminar(c);
 
         cicC.tancarEM();
+
+
     }//GEN-LAST:event_btnElimCicleActionPerformed
+
+    private void btnCicleNetejarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCicleNetejarActionPerformed
+
+        edGrauCicle.setText("");
+        edNomCicle.setText("");
+        edCicleIdFamilia.setText("");
+        edIDCicle.setText("");
+
+    }//GEN-LAST:event_btnCicleNetejarActionPerformed
+
+    private void btnCercaPerIDCicleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCercaPerIDCicleActionPerformed
+
+        Cicle c = cicC.Buscar(Long.valueOf(edIDCicle.getText()));
+
+        edGrauCicle.setText(c.getGrau());
+        edNomCicle.setText(c.getNom());
+        edCicleIdFamilia.setText(String.valueOf(c.getFamilia().getId()));
+
+        crearTablaCicles(c);
+
+        List<Modul> listaModuls = modC.cercarPerCicle(c);
+
+        cicC.tancarEM();
+        modC.tancarEM();
+
+        crearTablaCicleModuls(listaModuls);
+
+    }//GEN-LAST:event_btnCercaPerIDCicleActionPerformed
 
     public void crearTablaAlumn(List<Alumne> lAlumn) {
         String[] col = {"ID", "NOM", "COGNOM", "NIF", "CORREU", "TEL"};
@@ -1312,7 +1361,7 @@ public class vista extends javax.swing.JFrame {
     public void crearTablaFamiliaCicles(List<Cicle> cicles) {
         String[] col = {"ID", "GRAU", "NOM", "IDFAMILIA"};
         DefaultTableModel dft = new DefaultTableModel(col, 0);
-        tabFamiliaCicle.setModel(dft);
+        tabCicleModuls.setModel(dft);
         for (Cicle c : cicles) {
             dft.addRow(new Object[]{
                 c.getId(),
@@ -1335,10 +1384,26 @@ public class vista extends javax.swing.JFrame {
     }
 
     public void crearTablaCicles(Cicle cicle) {
-        String[] col = {"ID", "NOM"};
+        String[] col = {"ID", "GRAU","NOM","ID FAMILIA"};
         DefaultTableModel dft = new DefaultTableModel(col, 0);
         tabCicles.setModel(dft);
         dft.addRow(new Object[]{cicle.getId(), cicle.getGrau(), cicle.getNom(), cicle.getFamilia().getId()});
+
+    }
+
+    private void crearTablaCicleModuls(List<Modul> listaModuls) {
+
+        String[] col = {"ID", "NOM", "ID CICLE", "ID CURS"};
+        DefaultTableModel dft = new DefaultTableModel(col, 0);
+        tabCicleModuls.setModel(dft);
+        for (Modul m : listaModuls) {
+            dft.addRow(new Object[]{
+                m.getId(),
+                m.getNom(),
+                m.getCicle().getId(),
+                m.getCurs().getId()});
+
+        }
 
     }
 
@@ -1346,15 +1411,30 @@ public class vista extends javax.swing.JFrame {
         String[] colAlum = {"ID", "NOM", "COGNOM", "NIF", "CORREU", "TEL"};
         DefaultTableModel dftAlum = new DefaultTableModel(colAlum, 0);
         tabAlumn.setModel(dftAlum);
+        
         String[] colAlumMatri = {"ID", "DESCOMPTE", "FECHA", "IMPORTE", "MODALITAT"};
         DefaultTableModel dftAlumMatri = new DefaultTableModel(colAlumMatri, 0);
         tabAlumMatriculas.setModel(dftAlumMatri);
+        
         String[] colFamilia = {"ID", "NOM"};
         DefaultTableModel dftFami = new DefaultTableModel(colFamilia, 0);
         tabFamilia.setModel(dftFami);
+        
         String[] colFamiliaCicle = {"ID", "GRAU", "NOM", "IDFAMILIA"};
         DefaultTableModel dftFamiCicle = new DefaultTableModel(colFamiliaCicle, 0);
         tabFamiliaCicle.setModel(dftFamiCicle);
+        
+        String[] colCicle = {"ID", "GRAU", "NOM", "IDFAMILIA"};
+        DefaultTableModel dftCicle = new DefaultTableModel(colCicle, 0);
+        tabFamiliaCicle.setModel(dftCicle);
+        
+        String[] colCicleModul =  {"ID", "NOM", "ID CICLE", "ID CURS"};
+        DefaultTableModel dftCicleModul = new DefaultTableModel(colCicleModul, 0);
+        tabCicleModuls.setModel(dftCicleModul);
+        
+        
+        
+        
 
     }
 
@@ -1407,6 +1487,7 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JButton btnCercaTotsFamilia;
     private javax.swing.JButton btnCercaTotsModul;
     private javax.swing.JButton btnCercaTotsUF;
+    private javax.swing.JButton btnCicleNetejar;
     private javax.swing.JButton btnElimAlum;
     private javax.swing.JButton btnElimCicle;
     private javax.swing.JButton btnElimCurs;
@@ -1513,4 +1594,5 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JTable tabFamiliaCicle;
     private javax.swing.JLabel textIdFamilia;
     // End of variables declaration//GEN-END:variables
+
 }

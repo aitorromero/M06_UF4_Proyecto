@@ -1,6 +1,5 @@
 package DAO;
 
-import elementos.Alumne;
 import elementos.Cicle;
 import elementos.Familia;
 import java.util.List;

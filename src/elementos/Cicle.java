@@ -37,7 +37,7 @@ public class Cicle implements Serializable{
     @OneToMany(mappedBy="cicle", cascade = CascadeType.ALL)
     private List<Curs> listaCursos;    
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade ={ CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "idFamilia")
     private Familia familia;
 
