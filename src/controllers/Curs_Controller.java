@@ -126,5 +126,6 @@ public class Curs_Controller implements CursDAO {
         List<Curs> lista = (List<Curs>) a.getResultList();
         return lista;
     }
+    
 
 }

@@ -17,12 +17,14 @@ import javax.persistence.OneToMany;
 
 @Entity
 @NamedQueries({
-@NamedQuery(name= Curs.CURS_ID, query="SELECT c FROM Curs c WHERE c.id=:id")})
+@NamedQuery(name= Curs.CURS_ID, query="SELECT c FROM Curs c WHERE c.id=:id"),
+@NamedQuery(name= Curs.CURS_UF, query="SELECT c FROM Curs c WHERE c.cicle=:cicle")})
 public class Curs implements Serializable{
 
     private static final long serialVersionUID = 1L;
     
     public static final String CURS_ID = "curs_id";
+    public static final String CURS_UF= "curs_uf";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
