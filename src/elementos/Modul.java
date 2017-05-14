@@ -17,7 +17,7 @@ import javax.persistence.OneToMany;
 @Entity
 @NamedQueries({
 @NamedQuery(name= Modul.MODUL_ID, query="SELECT m FROM Modul m WHERE m.id=:id"),
-        @NamedQuery(name= Modul.MODUL_CICLE, query= "SELECT m FROM Modul m WHERE m.cicle=:cicle")})
+@NamedQuery(name= Modul.MODUL_CICLE, query= "SELECT m FROM Modul m WHERE m.cicle=:cicle")})
 public class Modul implements Serializable{
     
     private static final long serialVersionUID = 1L;

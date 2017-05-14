@@ -150,9 +150,9 @@ public class vista extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         edNomModul = new javax.swing.JTextField();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTable9 = new javax.swing.JTable();
+        tabModul = new javax.swing.JTable();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jTable10 = new javax.swing.JTable();
+        tabModulUF = new javax.swing.JTable();
         edCercaIDModul = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         btnCercaIDModul = new javax.swing.JButton();
@@ -161,6 +161,10 @@ public class vista extends javax.swing.JFrame {
         btnInserModul = new javax.swing.JButton();
         btnElimModul = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
+        cbModulCicle = new javax.swing.JComboBox<>();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        cbModulCurs = new javax.swing.JComboBox<>();
         jPanel7 = new javax.swing.JPanel();
         edCercaIDUF = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
@@ -939,7 +943,7 @@ public class vista extends javax.swing.JFrame {
 
         jLabel20.setText("Nom");
 
-        jTable9.setModel(new javax.swing.table.DefaultTableModel(
+        tabModul.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -950,9 +954,9 @@ public class vista extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane9.setViewportView(jTable9);
+        jScrollPane9.setViewportView(tabModul);
 
-        jTable10.setModel(new javax.swing.table.DefaultTableModel(
+        tabModulUF.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -963,21 +967,54 @@ public class vista extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane10.setViewportView(jTable10);
+        jScrollPane10.setViewportView(tabModulUF);
 
         jLabel21.setText("Insertar la id a cercar");
 
         btnCercaIDModul.setText("Cercar per ID");
+        btnCercaIDModul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCercaIDModulActionPerformed(evt);
+            }
+        });
 
         btnCercaTotsModul.setText("Cercar Tots");
+        btnCercaTotsModul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCercaTotsModulActionPerformed(evt);
+            }
+        });
 
         btnModifModul.setText("Modificar");
+        btnModifModul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifModulActionPerformed(evt);
+            }
+        });
 
         btnInserModul.setText("Inserir");
+        btnInserModul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInserModulActionPerformed(evt);
+            }
+        });
 
         btnElimModul.setText("Eliminar");
+        btnElimModul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnElimModulActionPerformed(evt);
+            }
+        });
 
         jLabel22.setText("Llista d'Unitats Formatives");
+
+        cbModulCicle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel30.setText("Cicle");
+
+        jLabel31.setText("Curs");
+
+        cbModulCurs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -987,7 +1024,12 @@ public class vista extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(edNomModul, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(edNomModul, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbModulCicle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel30)
+                            .addComponent(jLabel31)
+                            .addComponent(cbModulCurs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(98, 98, 98)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
@@ -1023,7 +1065,16 @@ public class vista extends javax.swing.JFrame {
                     .addComponent(jLabel22))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(edNomModul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(edNomModul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel30)
+                        .addGap(5, 5, 5)
+                        .addComponent(cbModulCicle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel31)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbModulCurs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1569,9 +1620,7 @@ public class vista extends javax.swing.JFrame {
         
         try {
             UnitatFormativa uf = unitC.Buscar(Long.parseLong(edCercaIDUF.getText()));
-
             Modul m = modC.Buscar(Long.parseLong(cbModulsUF.getSelectedItem().toString()));
-
             Curs c = m.getCurs();
 
             uf.setNom(edNomUF.getText());
@@ -1641,32 +1690,82 @@ public class vista extends javax.swing.JFrame {
      * @param evt 
      */
     private void btnCercaIDUFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCercaIDUFActionPerformed
-       
-        
-          try {
+        try {
             UnitatFormativa uf = unitC.Buscar(Long.parseLong(edCercaIDUF.getText()));
-
-         
+            
             edNomUF.setText(uf.getNom());
             edHoresUF.setText(String.valueOf(uf.getHores()));
             cbModulsUF.setSelectedItem(String.valueOf(uf.getModul().getId()));
         
-
             crearTablaUnitat(uf);
             
         } catch (NumberFormatException e) {
-
             ExcepcionGeneral eg = new ExcepcionGeneral();
-
             eg.ExcepcionStringEnNumero(edHoresUF.getText());
         }
-   
-
-   
     }//GEN-LAST:event_btnCercaIDUFActionPerformed
 
-    
-    
+    /**
+     * Metodo que se encarga de mostrar todos los modulos en la tabla tabModul
+     * @param evt 
+     */
+    private void btnCercaTotsModulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCercaTotsModulActionPerformed
+        List<Modul> m = modC.cercarTot();
+        crearTablaModul(m);
+    }//GEN-LAST:event_btnCercaTotsModulActionPerformed
+
+    /**
+     * Metodo que busca un modulo por la id y despues muestra los campos de este
+     * modulo en la tabla tabModul, rellena los edit text y los comboBox con sus
+     * datos y muestra todas las uf que contiene en la tabla tabModulUF
+     * @param evt 
+     */
+    private void btnCercaIDModulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCercaIDModulActionPerformed
+        Modul m = modC.Buscar(Long.parseLong(edCercaIDModul.getText()));
+        
+        edNomModul.setText(m.getNom());
+        cbModulCurs.setSelectedItem(m.getCurs().getCursNom());
+        cbModulCicle.setSelectedItem(m.getCicle().getNom());
+        crearTablaModul(m);
+        crearTablaModulUF(m.getLlistaUF());
+    }//GEN-LAST:event_btnCercaIDModulActionPerformed
+
+    /**
+     * Metodo que elimina un modulo mediante su id
+     * @param evt 
+     */
+    private void btnElimModulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimModulActionPerformed
+        Modul m = modC.Buscar(Long.parseLong(edCercaIDModul.getText()));
+        modC.eliminar(m);
+    }//GEN-LAST:event_btnElimModulActionPerformed
+
+    /**
+     * Metodo que nos permite insertar nuevos modulos
+     * @param evt 
+     */
+    private void btnInserModulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserModulActionPerformed
+        Cicle c = cicC.BuscarPerNom(cbModulCicle.getSelectedItem().toString());
+        Curs curs = cursC.BuscarPerNom(cbModulCurs.getSelectedItem().toString());
+        
+        Modul m = new Modul(edNomModul.getText(), curs, c);
+        modC.insertar(m);
+        modC.tancarEM();
+    }//GEN-LAST:event_btnInserModulActionPerformed
+
+    /**
+     * Metodo que mediante un modulo ya recuperado por la id nos permite modificar
+     * los campos de este objeto.
+     * @param evt 
+     */
+    private void btnModifModulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifModulActionPerformed
+        Modul m = modC.Buscar(Long.parseLong(edCercaIDModul.getText()));
+        Cicle c = cicC.BuscarPerNom(cbModulCicle.getSelectedItem().toString());
+        Curs curs = cursC.BuscarPerNom(cbModulCurs.getSelectedItem().toString());
+        
+        m.setNom(edNomModul.getText());
+        m.setCurs(curs);
+        m.setCicle(c);
+    }//GEN-LAST:event_btnModifModulActionPerformed
     
     /**
      * Método que se encarga de limpiar el combo box de la pestaña
@@ -1687,9 +1786,7 @@ public class vista extends javax.swing.JFrame {
             cbModulsUF.addItem(String.valueOf(modul.getId()));
         }
 
-    }
-
-    
+    }    
     
     public void crearTablaAlumn(List<Alumne> lAlumn) {
         String[] col = {"ID", "NOM", "COGNOM", "NIF", "CORREU", "TEL"};
@@ -1827,6 +1924,31 @@ public class vista extends javax.swing.JFrame {
         tabUF.setModel(dftUF);
         dftUF.addRow(new Object[]{uf.getId(),uf.getNom(),uf.getHores(),uf.getCurs().getId(),uf.getModul().getId(),""});
     }
+    
+    public void crearTablaModul(Modul modul){
+        String[] col = {"ID", "NOM", "CICLE", "CURS"};
+        DefaultTableModel dft = new DefaultTableModel(col, 0);
+        tabModul.setModel(dft);
+        dft.addRow(new Object[] {modul.getId(), modul.getNom(), modul.getCicle().getId(), modul.getCurs().getId()});
+    }
+    
+    public void crearTablaModul(List<Modul> modul){
+        String[] col = {"ID", "NOM","CICLE", "CURS"};
+        DefaultTableModel dft = new DefaultTableModel(col, 0);
+        tabModul.setModel(dft);
+        for (Modul mod : modul) {
+            dft.addRow(new Object[] {mod.getId(), mod.getNom(), mod.getCicle().getId(), mod.getCurs().getCursNom()});
+        }        
+    }
+    
+    public void crearTablaModulUF(List<UnitatFormativa> uf){
+        String[] col = {"ID", "NOM", "HORES"};
+        DefaultTableModel dft = new DefaultTableModel(col, 0);
+        tabModulUF.setModel(dft);
+        for (UnitatFormativa u : uf) {
+            dft.addRow(new Object[] {u.getId(), u.getNom(), u.getHores()});
+        }        
+    }
 
     public void limpiaTablas() {
         String[] colAlum = {"ID", "NOM", "COGNOM", "NIF", "CORREU", "TEL"};
@@ -1868,6 +1990,14 @@ public class vista extends javax.swing.JFrame {
         String[] colUFMAtricula = {"ID", "DESCOMPTE", "DATA", "IMPORT", "MODALITAT", "ID ALUMNE"};
         DefaultTableModel dftUFMAtricula = new DefaultTableModel(colUFMAtricula, 0);
         tabUFMAtricules.setModel(dftUFMAtricula);
+        
+        String[] colModul = {"ID", "NOM", "CICLE", "CURS"};
+        DefaultTableModel dftModul = new DefaultTableModel(colModul, 0);
+        tabModul.setModel(dftModul);
+        
+        String[] colModulUF = {"ID", "NOM", "HORES"};
+        DefaultTableModel dftModulUF = new DefaultTableModel(colModulUF, 0);
+        tabModulUF.setModel(dftModulUF);
 
     }
 
@@ -1947,6 +2077,8 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cbCursCicle;
     private javax.swing.JComboBox<String> cbCursNum;
+    private javax.swing.JComboBox<String> cbModulCicle;
+    private javax.swing.JComboBox<String> cbModulCurs;
     private javax.swing.JComboBox<String> cbModulsUF;
     private javax.swing.JTextField edCercaIDCurs;
     private javax.swing.JTextField edCercaIDFamilia;
@@ -1989,6 +2121,8 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2017,9 +2151,7 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable10;
     private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable9;
     private javax.swing.JTable tabAlumMatriculas;
     private javax.swing.JTable tabAlumn;
     private javax.swing.JTable tabCicleModuls;
@@ -2028,6 +2160,8 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JTable tabCursUF;
     private javax.swing.JTable tabFamilia;
     private javax.swing.JTable tabFamiliaCicle;
+    private javax.swing.JTable tabModul;
+    private javax.swing.JTable tabModulUF;
     private javax.swing.JTable tabUF;
     private javax.swing.JTable tabUFMAtricules;
     private javax.swing.JLabel textIdFamilia;
