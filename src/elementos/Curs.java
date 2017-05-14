@@ -42,7 +42,7 @@ public class Curs implements Serializable{
     private List<UnitatFormativa> llistatUF;
 
     
-     @OneToMany (mappedBy = "curs", cascade = CascadeType.ALL)
+    @OneToMany (mappedBy = "curs", cascade = CascadeType.ALL)
     private List<Modul> llistaModuls;
      
      

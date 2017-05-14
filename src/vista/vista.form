@@ -754,6 +754,8 @@
                                                   <Component id="btnElimCurs" pref="100" max="32767" attributes="0"/>
                                                   <Component id="btnCursCercaTots" max="32767" attributes="0"/>
                                               </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="btnNetejaCurs" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -766,7 +768,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="201" max="32767" attributes="0"/>
+                              <EmptySpace pref="118" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                                   <Component id="jScrollPane3" min="-2" pref="222" max="-2" attributes="0"/>
@@ -810,6 +812,7 @@
                                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                               <Component id="btnInserCurs" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="btnElimCurs" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnNetejaCurs" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -895,11 +898,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Inserir"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInserCursActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnModifCurs">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Modificar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModifCursActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnElimCurs">
               <Properties>
@@ -976,6 +985,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCursCercaTotsActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnNetejaCurs">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Neteja"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNetejaCursActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -1280,9 +1297,11 @@
                                           <Component id="btnElimModul" alignment="0" max="32767" attributes="0"/>
                                           <Component id="btnCercaTotsModul" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="btnModulNeteja" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="260" max="32767" attributes="0"/>
+                              <EmptySpace pref="185" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                                   <Component id="jScrollPane10" min="-2" pref="293" max="-2" attributes="0"/>
@@ -1324,6 +1343,7 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnInserModul" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnElimModul" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnModulNeteja" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1487,6 +1507,14 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnModulNeteja">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Neteja"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModulNetejaActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

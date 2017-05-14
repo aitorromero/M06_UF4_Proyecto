@@ -6,6 +6,7 @@
 package vista;
 
 import Excepciones.ExcepcionGeneral;
+import Utilitats.CursNom;
 import controllers.Alumne_Controller;
 import controllers.Cicle_Controller;
 import controllers.Curs_Controller;
@@ -44,7 +45,7 @@ public class vista extends javax.swing.JFrame {
     public vista() {
         initComponents();
         limpiaTablas();
-        rellenarComboModul();
+        //rellenarComboModul();
     }
 
     /**
@@ -127,6 +128,7 @@ public class vista extends javax.swing.JFrame {
         cbCursCicle = new javax.swing.JComboBox<>();
         jLabel28 = new javax.swing.JLabel();
         btnCursCercaTots = new javax.swing.JButton();
+        btnNetejaCurs = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         edNomFamilia = new javax.swing.JTextField();
@@ -165,6 +167,7 @@ public class vista extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         cbModulCurs = new javax.swing.JComboBox<>();
+        btnModulNeteja = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         edCercaIDUF = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
@@ -624,8 +627,18 @@ public class vista extends javax.swing.JFrame {
         jLabel9.setText("Llistat de cursos");
 
         btnInserCurs.setText("Inserir");
+        btnInserCurs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInserCursActionPerformed(evt);
+            }
+        });
 
         btnModifCurs.setText("Modificar");
+        btnModifCurs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifCursActionPerformed(evt);
+            }
+        });
 
         btnElimCurs.setText("Eliminar");
         btnElimCurs.addActionListener(new java.awt.event.ActionListener() {
@@ -669,6 +682,13 @@ public class vista extends javax.swing.JFrame {
             }
         });
 
+        btnNetejaCurs.setText("Neteja");
+        btnNetejaCurs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNetejaCursActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -703,14 +723,16 @@ public class vista extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(btnElimCurs, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                                            .addComponent(btnCursCercaTots, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                            .addComponent(btnCursCercaTots, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnNetejaCurs))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(edCercaIDCurs, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnCercaPerIDCurs)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel19)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -743,7 +765,8 @@ public class vista extends javax.swing.JFrame {
                                     .addComponent(cbCursNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(btnInserCurs)
-                                        .addComponent(btnElimCurs)))
+                                        .addComponent(btnElimCurs)
+                                        .addComponent(btnNetejaCurs)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(btnModifCurs)
@@ -1016,6 +1039,13 @@ public class vista extends javax.swing.JFrame {
 
         cbModulCurs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        btnModulNeteja.setText("Neteja");
+        btnModulNeteja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModulNetejaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -1045,8 +1075,10 @@ public class vista extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnElimModul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnCercaTotsModul, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, Short.MAX_VALUE)
+                                    .addComponent(btnCercaTotsModul, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnModulNeteja)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel22)
                             .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1079,7 +1111,8 @@ public class vista extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnInserModul)
-                            .addComponent(btnElimModul))
+                            .addComponent(btnElimModul)
+                            .addComponent(btnModulNeteja))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnModifModul)
@@ -1302,6 +1335,10 @@ public class vista extends javax.swing.JFrame {
         crearTablaFamilia(listaFami);
     }//GEN-LAST:event_btnCercaTotsFamiliaActionPerformed
 
+    /**
+     * Metodo para insertar familia
+     * @param evt 
+     */
     private void btnInserFamiliaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserFamiliaActionPerformed
         Familia f = new Familia(edNomFamilia.getText());
         famiC.insertar(f);
@@ -1327,6 +1364,11 @@ public class vista extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnModifFamiliaActionPerformed
 
+    /**
+     * Metodo para buscar familia por una id determinada, tambien muestra todos
+     * los datos de esta en los edit text pertinentes y en la tabla
+     * @param evt 
+     */
     private void btnCercaPerIDFamiliaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCercaPerIDFamiliaActionPerformed
 
         Familia f = famiC.Buscar(Long.valueOf(edCercaIDFamilia.getText()));
@@ -1766,6 +1808,40 @@ public class vista extends javax.swing.JFrame {
         m.setCurs(curs);
         m.setCicle(c);
     }//GEN-LAST:event_btnModifModulActionPerformed
+
+    /**
+     * Metodo para vaciar todos los editText y dejar los comboBox en el primer
+     * item
+     * @param evt 
+     */
+    private void btnModulNetejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModulNetejaActionPerformed
+        edNomModul.setText("");
+        edCercaIDModul.setText("");
+        cbModulCicle.setSelectedIndex(0);
+        cbModulCurs.setSelectedIndex(0);
+    }//GEN-LAST:event_btnModulNetejaActionPerformed
+
+    /**
+     * Metodo para vaciar los campos y dejarlos por defecto
+     * @param evt 
+     */
+    private void btnNetejaCursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNetejaCursActionPerformed
+        edCercaIDCurs.setText("");
+        cbCursCicle.setSelectedIndex(0);
+        cbCursNum.setSelectedIndex(0);
+    }//GEN-LAST:event_btnNetejaCursActionPerformed
+
+    private void btnInserCursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserCursActionPerformed
+        Curs c = new Curs((CursNom)cbCursNum.getSelectedItem(), (Cicle)cbCursCicle.getSelectedItem());               
+        cursC.insertar(c);        
+    }//GEN-LAST:event_btnInserCursActionPerformed
+
+    private void btnModifCursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifCursActionPerformed
+        Curs c = cursC.Buscar(Long.parseLong(edCercaIDCurs.getText()));
+        
+        c.setCursNom((CursNom)cbCursNum.getSelectedItem());
+        c.setCicle((Cicle)cbCursCicle.getSelectedItem());
+    }//GEN-LAST:event_btnModifCursActionPerformed
     
     /**
      * Método que se encarga de limpiar el combo box de la pestaña
@@ -1785,8 +1861,33 @@ public class vista extends javax.swing.JFrame {
 
             cbModulsUF.addItem(String.valueOf(modul.getId()));
         }
+    }
 
-    }    
+    /**
+     * Metodo que recupera una lista con todos los ciclos y los añade en 
+     * un combobox.
+     */
+    private void rellenarComboCicle(){
+        List<Cicle> listaCicle = cicC.cercarTot();
+        cbModulCicle.removeAllItems();
+        
+        for (Cicle cicle : listaCicle) {
+            cbModulCicle.addItem(cicle.getNom());
+            cbCursCicle.addItem(cicle.getNom());
+        }        
+    }
+    
+    /**
+     * Metodo que recupera todos los cursos y los añade en un combobox
+     */
+    private void rellenarComboCurs(){
+        List<Curs> listaCurs = cursC.cercarTot();
+        cbModulCurs.removeAllItems();
+        
+        for (Curs listaCur : listaCurs) {
+            cbModulCurs.addItem(listaCur.getCursNom().toString());
+        }
+    }
     
     public void crearTablaAlumn(List<Alumne> lAlumn) {
         String[] col = {"ID", "NOM", "COGNOM", "NIF", "CORREU", "TEL"};
@@ -2071,6 +2172,8 @@ public class vista extends javax.swing.JFrame {
     private javax.swing.JButton btnModifFamilia;
     private javax.swing.JButton btnModifModul;
     private javax.swing.JButton btnModifUF;
+    private javax.swing.JButton btnModulNeteja;
+    private javax.swing.JButton btnNetejaCurs;
     private javax.swing.JButton btnNetejarAlum;
     private javax.swing.JButton btnUFNetejar;
     private javax.swing.ButtonGroup buttonGroup1;
