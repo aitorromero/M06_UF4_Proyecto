@@ -34,9 +34,9 @@ public class M06_UF4_Proyecto {
         Familia_Controller fc = new Familia_Controller();
         Modul_Controller mdc = new Modul_Controller();
 
-        Alumne a1 = new Alumne(92346987L, "¡Hilo jeje", "Casd", "csfadfasreo",19875);
-        
-        ac.insertar(a1);
+//        Alumne a1 = new Alumne(92346987L, "¡Hilo jeje", "Casd", "csfadfasreo",19875);
+//        
+//        ac.insertar(a1);
         /////////////////////////////////////////////////////////////////////meter alumno
 //        
 //        Familia f = new Familia("Familia familiosa");

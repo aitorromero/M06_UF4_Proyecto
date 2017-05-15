@@ -16,12 +16,14 @@ import javax.persistence.OneToMany;
 
 @Entity
 @NamedQueries({
-@NamedQuery(name= Modul.MODUL_ID, query="SELECT m FROM Modul m WHERE m.id=:id")})
+@NamedQuery(name= Modul.MODUL_ID, query="SELECT m FROM Modul m WHERE m.id=:id"),
+@NamedQuery(name= Modul.MODUL_CICLE, query= "SELECT m FROM Modul m WHERE m.cicle=:cicle")})
 public class Modul implements Serializable{
     
     private static final long serialVersionUID = 1L;
     
     public static final String MODUL_ID = "modul_id";
+    public static final String MODUL_CICLE = "moduls_per_cicle";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

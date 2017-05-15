@@ -1,6 +1,8 @@
 package controllers;
 
 import DAO.ModulDAO;
+import elementos.Cicle;
+import elementos.Familia;
 import elementos.Modul;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -121,6 +123,28 @@ public class Modul_Controller implements ModulDAO {
     }
 
     @Override
+    public List<Modul> cercarPerCicle(Cicle cicle) {
+    
+        EntityManager em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(Modul.MODUL_CICLE, Modul.class);
+        
+        query.setParameter("cicle", cicle);
+        
+        List<Modul> cicles = query.getResultList();
+        
+        
+        System.out.println("close");
+        System.out.println("funka");
+        em.close();
+        
+        return cicles;
+        
+        
+    }
+    
+    @Override
     public List<Modul> cercarTot() {
         EntityManager em = new EM_Controller().getEntityManager();
 
@@ -129,5 +153,7 @@ public class Modul_Controller implements ModulDAO {
         List<Modul> lista = (List<Modul>) a.getResultList();
         return lista;
     }
+
+ 
 
 }

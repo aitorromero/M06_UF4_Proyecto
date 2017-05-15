@@ -117,7 +117,7 @@ public class Unitat_Controller implements UnitatFormativaDAO {
         EntityManager em = new EM_Controller().getEntityManager();
 
         System.out.println("Consulta");
-        Query a = em.createQuery("FROM Modul");
+        Query a = em.createQuery("FROM UnitatFormativa");
         List<UnitatFormativa> lista = (List<UnitatFormativa>) a.getResultList();
         return lista;
     }

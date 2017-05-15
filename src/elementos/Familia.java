@@ -27,7 +27,7 @@ public class Familia implements Serializable{
     private Long id;
     private String nom;
     
-    @OneToMany(mappedBy="familia", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="familia", cascade = CascadeType.PERSIST)
     private List<Cicle> llistaCicles;
 
     public Familia( String nom) {
