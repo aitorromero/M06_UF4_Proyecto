@@ -122,6 +122,12 @@ public class Modul_Controller implements ModulDAO {
         return c;    
     }
 
+    /**
+     * Metodo que recive ciclo por parametro y mediante la query de Modul Modul_cicle
+     * nos devuelve una lista de modulos.
+     * @param cicle
+     * @return 
+     */
     @Override
     public List<Modul> cercarPerCicle(Cicle cicle) {
     

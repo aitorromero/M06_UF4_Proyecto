@@ -124,6 +124,12 @@ public class Unitat_Controller implements UnitatFormativaDAO {
         return lista;
     }
 
+    /**
+     * Metodo que mediante la query de UnitatFormativa busca una unitat formativa
+     * en base a un curso que obtiene por parametro
+     * @param curs
+     * @return 
+     */
     @Override
     public List<UnitatFormativa> cercaUfPerCurs(Curs curs) {
         
