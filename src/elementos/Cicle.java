@@ -17,13 +17,15 @@ import javax.persistence.OneToMany;
 @Entity
 @NamedQueries({
 @NamedQuery(name= Cicle.CICLE_ID, query="SELECT c FROM Cicle c WHERE c.id=:id"),
-        @NamedQuery(name= Cicle.CICLE_FAMILIA, query= "SELECT c FROM Cicle c WHERE c.familia=:familia")})
+@NamedQuery(name= Cicle.CICLE_NOM, query="SELECT c FROM Cicle c WHERE c.nom=:nom"),
+@NamedQuery(name= Cicle.CICLE_FAMILIA, query= "SELECT c FROM Cicle c WHERE c.familia=:familia")})
 public class Cicle implements Serializable{
 
     private static final long serialVersionUID = 1L;
     
     public static final String CICLE_ID = "cicle_id";
     public static final String CICLE_FAMILIA = "cicles_per_familia";
+    public static final String CICLE_NOM = "cercaCicleNom";
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

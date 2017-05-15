@@ -24,6 +24,7 @@ import elementos.UnitatFormativa;
 import java.util.List;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import Utilitats.*;
 
 /**
  *
@@ -38,6 +39,7 @@ public class vista extends javax.swing.JFrame {
     Matricula_Controller matriC = new Matricula_Controller();
     Modul_Controller modC = new Modul_Controller();
     Unitat_Controller unitC = new Unitat_Controller();
+    CursNom cn;
 
     /**
      * Creates new form vista
@@ -45,7 +47,9 @@ public class vista extends javax.swing.JFrame {
     public vista() {
         initComponents();
         limpiaTablas();
-        //rellenarComboModul();
+        rellenarComboModul();
+        rellenarComboCicle();
+        rellenarComboCurs();
     }
 
     /**
@@ -1055,12 +1059,12 @@ public class vista extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(edNomModul, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbModulCicle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel30)
                             .addComponent(jLabel31)
-                            .addComponent(cbModulCurs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(98, 98, 98)
+                            .addComponent(cbModulCurs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edNomModul, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1219,13 +1223,13 @@ public class vista extends javax.swing.JFrame {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(edNomUF, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
                                 .addComponent(edHoresUF)
-                                .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
                                 .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(cbModulsUF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(128, 128, 128)
+                            .addComponent(cbModulsUF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edNomUF, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(56, 56, 56)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1594,11 +1598,14 @@ public class vista extends javax.swing.JFrame {
 
     private void btnCercaPerIDCursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCercaPerIDCursActionPerformed
         Curs c = cursC.Buscar(Long.parseLong(edCercaIDCurs.getText()));
+        List<UnitatFormativa> uf = unitC.cercaUfPerCurs(c);
 
         edCercaIDCurs.setText(c.getId().toString());
         cbCursNum.setSelectedItem(c.getCursNom());
 
         crearTablaCurs(c);
+        
+        crearTablaCursUF(uf);
 
         //List<UnitatFormativa> listaUF = unitC.cer
         //crearTablaCursUF(uf);
@@ -1832,8 +1839,16 @@ public class vista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNetejaCursActionPerformed
 
     private void btnInserCursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserCursActionPerformed
-        Curs c = new Curs((CursNom)cbCursNum.getSelectedItem(), (Cicle)cbCursCicle.getSelectedItem());               
-        cursC.insertar(c);        
+        Cicle cicle = cicC.BuscarPerNom(cbCursCicle.getSelectedItem().toString());
+        
+        if (cbCursNum.getSelectedIndex()==0) {
+            cn = CursNom.primer;
+        }else{
+            cn = CursNom.segon;
+        }
+        Curs c = new Curs(cn, cicle); 
+        //System.out.println(CursNom.primer.toString());
+        cursC.modificar(c);        
     }//GEN-LAST:event_btnInserCursActionPerformed
 
     private void btnModifCursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifCursActionPerformed
@@ -1870,6 +1885,7 @@ public class vista extends javax.swing.JFrame {
     private void rellenarComboCicle(){
         List<Cicle> listaCicle = cicC.cercarTot();
         cbModulCicle.removeAllItems();
+        cbCursCicle.removeAllItems();
         
         for (Cicle cicle : listaCicle) {
             cbModulCicle.addItem(cicle.getNom());
@@ -1883,9 +1899,11 @@ public class vista extends javax.swing.JFrame {
     private void rellenarComboCurs(){
         List<Curs> listaCurs = cursC.cercarTot();
         cbModulCurs.removeAllItems();
+        cbCursNum.removeAllItems();
         
         for (Curs listaCur : listaCurs) {
             cbModulCurs.addItem(listaCur.getCursNom().toString());
+            cbCursNum.addItem(listaCur.getCursNom().toString());
         }
     }
     
@@ -2070,7 +2088,7 @@ public class vista extends javax.swing.JFrame {
 
         String[] colCicle = {"ID", "GRAU", "NOM", "IDFAMILIA"};
         DefaultTableModel dftCicle = new DefaultTableModel(colCicle, 0);
-        tabFamiliaCicle.setModel(dftCicle);
+        tabCicles.setModel(dftCicle);
 
         String[] colCicleModul = {"ID", "NOM", "ID CICLE", "ID CURS"};
         DefaultTableModel dftCicleModul = new DefaultTableModel(colCicleModul, 0);

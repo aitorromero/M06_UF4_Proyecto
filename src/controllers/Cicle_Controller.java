@@ -93,7 +93,7 @@ public class Cicle_Controller implements CicleDAO {
         EntityManager em = new EM_Controller().getEntityManager();
 
         System.out.println("Busqueda per nom");
-        Query query = em.createNamedQuery("cercaCicleNom", Cicle.class);
+        Query query = em.createNamedQuery(Cicle.CICLE_NOM, Cicle.class);
         query.setParameter("nom", nom);
         Cicle c = (Cicle) query.getSingleResult();
         System.out.println("close");

@@ -16,11 +16,13 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({
-@NamedQuery(name= UnitatFormativa.UNITATFORMATIVA_ID, query="SELECT u FROM UnitatFormativa u WHERE u.id=:id")})
+@NamedQuery(name= UnitatFormativa.UNITATFORMATIVA_ID, query="SELECT u FROM UnitatFormativa u WHERE u.id=:id"),
+@NamedQuery(name= UnitatFormativa.UNITATFORMATIVA_CURSID, query="SELECT u FROM UnitatFormativa u WHERE u.curs=:curs")})
 public class UnitatFormativa implements Serializable{
     private static final long serialVersionUID = 1L;
     
-    public static final String UNITATFORMATIVA_ID = "unitatformativa_id";   
+    public static final String UNITATFORMATIVA_ID = "unitatformativa_id";
+    public static final String UNITATFORMATIVA_CURSID = "unitatformativa_cursid";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

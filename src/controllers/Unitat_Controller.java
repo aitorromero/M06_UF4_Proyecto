@@ -1,6 +1,8 @@
 package controllers;
 
 import DAO.UnitatFormativaDAO;
+import elementos.Curs;
+import elementos.Modul;
 import elementos.UnitatFormativa;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -121,5 +123,26 @@ public class Unitat_Controller implements UnitatFormativaDAO {
         List<UnitatFormativa> lista = (List<UnitatFormativa>) a.getResultList();
         return lista;
     }
+
+    @Override
+    public List<UnitatFormativa> cercaUfPerCurs(Curs curs) {
+        
+        EntityManager em = new EM_Controller().getEntityManager();
+
+        System.out.println("busqueda");
+        Query query = em.createNamedQuery(UnitatFormativa.UNITATFORMATIVA_CURSID, UnitatFormativa.class);
+        
+        query.setParameter("curs", curs);
+        
+        List<UnitatFormativa> ufs = query.getResultList();
+        
+        
+        System.out.println("close");
+        System.out.println("funka");
+        em.close();
+        
+        return ufs;
+    }
+
 
 }
