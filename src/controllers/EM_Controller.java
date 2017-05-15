@@ -13,7 +13,4 @@ public class EM_Controller {
         EntityManager em = emf.createEntityManager();
         return em;
     }
-     
-     
-     
 }
